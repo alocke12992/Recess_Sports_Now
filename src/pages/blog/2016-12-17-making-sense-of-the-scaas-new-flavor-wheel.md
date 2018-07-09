@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-image: /img/flavor_wheel.jpg
+featuredImage: /img/flavor_wheel.jpg
 title: Making sense of the SCAA’s new Flavor Wheel
 date: 2016-12-17T15:04:10.000Z
 description: >-

@@ -7,18 +7,18 @@ public_folder: /img
 
 collections:
   - name: "blog"
-    label: "Blog"
+    label: "Original Post"
     folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
-      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
-      - {label: "Link", name: "link", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Source", name: "source", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
       - {label: "Tags", name: "tags", widget: "list"}
 
   - name: "pages"
@@ -30,7 +30,7 @@ collections:
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Source", name: "link", widget: "string"}
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"
