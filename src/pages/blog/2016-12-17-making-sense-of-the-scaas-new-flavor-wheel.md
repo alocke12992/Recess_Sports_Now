@@ -8,8 +8,8 @@ description: >-
   tasters, has been revised for the first time this year.
 link: ' test'
 tags:
-  - flavor
-  - tasting
+  - Originals
+  - Tech
 ---
 
 ![flavor wheel](/img/flavor_wheel.jpg)
