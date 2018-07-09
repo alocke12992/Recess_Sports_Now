@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
+import Img from 'gatsby-image'
 
 class TagRoute extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class TagRoute extends React.Component {
     const postLinks = posts.map(post => (
       <li key={post.node.fields.slug}>
         <Link to={post.node.fields.slug}>
+          <img src={post.node.frontmatter.image} />
           <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
         </Link>
       </li>
@@ -63,6 +65,7 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
+            image
           }
         }
       }
