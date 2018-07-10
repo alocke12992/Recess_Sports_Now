@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
-featuredImage: /img/flavor_wheel.jpg
-title: Making sense of the SCAA’s new Flavor Wheel
+featuredImage: /img/uncle-drew-2018-movie-poster.jpg
+title: 'See how easy it is Brett? '
 date: 2016-12-17T15:04:10.000Z
 description: >-
   The Coffee Taster’s Flavor Wheel, the official resource used by coffee
@@ -10,9 +10,9 @@ link: ' test'
 tags:
   - Originals
   - Tech
+  - Podcast
 ---
-
-![flavor wheel](/img/flavor_wheel.jpg)
+![this is for SEO ](/img/coffee-gear.png)
 
 The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
 
