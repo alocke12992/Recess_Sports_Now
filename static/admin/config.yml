@@ -20,7 +20,13 @@ collections:
       - {label: "Source", name: "source", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
       - {label: "Tags", name: "tags", widget: "list"}
-
+  - name: "Ads"
+    label: "Ads"
+    file: "src/pages/ads/index.md"
+    fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
   - name: "pages"
     label: "Pages"
     files:

@@ -13,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^2.0.5",
     "gatsby-plugin-sass": "^1.0.17",
     "gatsby-plugin-sharp": "^1.6.34",
+    "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-remark-images": "^1.5.50",
     "gatsby-source-filesystem": "^1.5.23",
     "gatsby-transformer-remark": "^1.7.33",
@@ -22,7 +23,10 @@
     "netlify-cms": "^1.7.0",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
+    "semantic-ui-react": "^0.82.0",
+    "styled-components": "^3.3.3",
     "uuid": "^3.2.1"
   },
   "keywords": [

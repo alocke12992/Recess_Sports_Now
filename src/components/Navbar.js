@@ -1,8 +1,14 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import {kebabCase} from 'lodash'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React from 'react';
+import Link from 'gatsby-link';
+import {kebabCase} from 'lodash';
+import RsnLogo from '../img/splashLogo.png';
+import styled from 'styled-components';
+import FacebookLogo from '../img/facebook-icon.svg';
+import Twitter from '../img/twitter-logo.svg';
+import Youtube from '../img/youtube-logo.svg';
+import Instagram from '../img/instagram-logo.svg';
+import Info from '../img/info.svg';
+import {Menu, Image, Grid} from 'semantic-ui-react';
 
 const tags = [
   "Entertainment",
@@ -13,27 +19,75 @@ const tags = [
   "Originals",
 ]
 
-const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-          Home
-        </Link>
-      </div>
-      <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-        <Link className="navbar-item" to="/products">
-          Products
-        </Link>
-        {tags.map(tag => (
-          <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-        ))}
-      </div>
-    </div>
-  </nav>
-)
+class Navbar extends React.Component {
+
+  render() {
+    return (
+      <Grid centered>
+        <Splash>
+          <Logo src={RsnLogo} />
+        </Splash>
+        <Grid.Row centered>
+          <Center textAlign='center' width={16}>
+            <Nav>
+              <Link to="/" className="navbar-item">
+                Home
+          </Link>
+              {tags.map(tag => (
+                <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+              ))}
+              <Link className="navbar-item" to="/contact">
+                Contact
+          </Link>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Info} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={FacebookLogo} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Twitter} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Instagram} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Youtube} />
+              </a>
+            </Nav>
+          </Center>
+        </Grid.Row>
+      </Grid>
+    )
+  }
+}
+
+const Logo = styled(Image)`
+      height: 200px !important;
+      margin-bottom: 15px !important;
+`
+
+const IconImg = styled.img`
+  height: 21px;
+  width: 21px;
+`
+
+const Center = styled(Grid.Column)`
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+    `
+const Splash = styled(Center)`
+      margin-bottom: -45px !important;
+    `
+
+const Nav = styled(Menu)`
+      display: flex !important;
+      justify-content: space-around !important;
+      width: 80% !important;
+      color: #333;
+        font-size: 11px;
+        line-height: 19px;
+    `
 
 export default Navbar
