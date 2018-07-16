@@ -26,7 +26,7 @@ collections:
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Featured Image", name: "featuredImage", widget: "image"}
+      - {label: "Background Ad", name: "backgroundAd", widget: "image"}
   - name: "pages"
     label: "Pages"
     files:
