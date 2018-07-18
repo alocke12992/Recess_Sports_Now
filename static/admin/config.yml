@@ -22,11 +22,31 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
   - name: "Ads"
     label: "Ads"
-    file: "src/pages/ads/index.md"
-    fields: 
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Background Ad", name: "backgroundAd", widget: "image"}
+    files:
+      - file: "src/pages/backgroundAd/index.md"
+        label: "Background"
+        name: "background"
+        fields: 
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
+          - {label: "Title", name: "title", widget: "hidden", default: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Link", name: "link", widget: "string"}
+      - file: "src/pages/headerAd/index.md"
+        label: "Header"
+        name: "header"
+        fields: 
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
+          - {label: "Title", name: "title", widget: "hidden", default: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Link", name: "link", widget: "string"}
+      - file: "src/pages/sideAd/index.md"
+        label: "Side Ad"
+        name: "side"
+        fields: 
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ads"}
+          - {label: "Title", name: "title", widget: "hidden", default: "string"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Link", name: "link", widget: "string"}
   - name: "pages"
     label: "Pages"
     files:

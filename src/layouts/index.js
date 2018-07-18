@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import {Grid} from 'semantic-ui-react';
 
 import Navbar from '../components/Navbar'
 import './all.sass'
@@ -11,12 +12,19 @@ class TemplateWrapper extends React.Component {
     const {edges: ads} = data.allMarkdownRemark
     console.log(ads)
     return (
-      <div>
-        <Helmet title="Home | Gatsby + Netlify CMS" />
-        <img src={ads[0].node.frontmatter.backgroundAd} />
-        <Navbar />
-        <div>{children()}</div>
-      </div>
+      <Grid columns={3}>
+        <Grid.Column width={4}>
+
+        </Grid.Column>
+        <Grid.Column width={4}>
+          <Helmet title="Home | Gatsby + Netlify CMS" />
+          <Navbar headerAd={ads[2].node.frontmatter.image} />
+          <div>{children()}</div>
+        </Grid.Column>
+        <Grid.Column width={4}>
+
+        </Grid.Column>
+      </Grid>
     )
   }
 }
@@ -38,7 +46,8 @@ export const adQuery = graphql`
           frontmatter {
             title
             templateKey
-            backgroundAd
+            image
+            link
           }
         }
       }

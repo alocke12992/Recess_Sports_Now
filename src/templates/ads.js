@@ -7,7 +7,8 @@ export const AdTemplate = ({
   contentComponent,
   title,
   helmet,
-  featuredImage,
+  image,
+  link
 }) => {
   const AdContent = contentComponent || Content
 
@@ -20,7 +21,7 @@ export const AdTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <img src={featuredImage} />
+            <img src={image} />
             <AdContent content={content} />
           </div>
         </div>
@@ -37,7 +38,8 @@ const Ad = ({data}) => {
       contentComponent={HTMLContent}
       helmet={<Helmet title={`${ad.frontmatter.title} | Ad`} />}
       title={ad.frontmatter.title}
-      featuredImage={ad.frontmatter.featuredImage}
+      image={ad.frontmatter.image}
+      link={ad.frontmatter.link}
     />
   )
 }
@@ -51,7 +53,8 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        featuredImage
+        image
+        link
       }
     }
   }
