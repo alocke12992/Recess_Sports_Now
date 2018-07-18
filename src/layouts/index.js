@@ -18,7 +18,7 @@ class TemplateWrapper extends React.Component {
         </Grid.Column>
         <Grid.Column width={4}>
           <Helmet title="Home | Gatsby + Netlify CMS" />
-          <Navbar headerAd={ads[2].node.frontmatter.image} />
+          <Navbar />
           <div>{children()}</div>
         </Grid.Column>
         <Grid.Column width={4}>
@@ -38,7 +38,7 @@ export default TemplateWrapper
 export const adQuery = graphql`
   query AdQuery {
     allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "ads" } }}
+      filter: { frontmatter: { category: { eq: "ad" } }}
     ) {
       edges {
         node {

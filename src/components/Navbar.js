@@ -24,7 +24,6 @@ class Navbar extends React.Component {
   render() {
     return (
       <Grid centered>
-        <Image size="small" src={this.props.headerAd} />
         <Splash>
           <Logo src={RsnLogo} />
         </Splash>
