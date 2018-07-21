@@ -24,6 +24,11 @@ class Navbar extends React.Component {
   render() {
     return (
       <Grid centered>
+        <Grid.Row centered>
+          <div className='fill'>
+            <img src={this.props.headerAd} />
+          </div>
+        </Grid.Row>
         <Splash>
           <Logo src={RsnLogo} />
         </Splash>
@@ -32,13 +37,13 @@ class Navbar extends React.Component {
             <Nav>
               <Link to="/" className="navbar-item">
                 Home
-          </Link>
+              </Link>
               {tags.map(tag => (
                 <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               ))}
               <Link className="navbar-item" to="/contact">
                 Contact
-          </Link>
+              </Link>
               <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
                 <IconImg src={Info} />
               </a>
@@ -79,7 +84,7 @@ const Center = styled(Grid.Column)`
     `
 const Splash = styled(Center)`
       margin-bottom: -45px !important;
-    `
+`
 
 const Nav = styled(Menu)`
       display: flex !important;

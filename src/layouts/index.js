@@ -18,7 +18,7 @@ class TemplateWrapper extends React.Component {
         </Grid.Column>
         <Grid.Column width={4}>
           <Helmet title="Home | Gatsby + Netlify CMS" />
-          <Navbar />
+          <Navbar headerAd={ads[2].node.frontmatter.image} />
           <div>{children()}</div>
         </Grid.Column>
         <Grid.Column width={4}>
