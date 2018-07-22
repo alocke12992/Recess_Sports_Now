@@ -5,9 +5,47 @@ import {AdContext} from '../components/AdContext'
 
 export default class IndexPage extends React.Component {
 
-  showHome = () => {
-
+  makePost(post) {
+    console.log(post)
+    return (
+      <div
+        className="column is-one-quarter"
+        style={{border: '1px solid #eaecee'}}
+        key={post.id}
+      >
+        <img src={post.frontmatter.featuredImage} />
+        <p>
+          <Link className="has-text-primary" to={post.fields.slug}>
+            {post.frontmatter.title}
+          </Link>
+        </p>
+        <p>
+          {post.excerpt}
+        </p>
+      </div>
+    )
   }
+
+  makeFeaturedPost(post) {
+    return (
+      <div
+        className="column is-one-quarter"
+        style={{border: '1px solid #eaecee'}}
+        key={post.id}
+      >
+        <img src={post.frontmatter.featuredImage} />
+        <p>
+          <Link className="has-text-primary" to={post.fields.slug}>
+            {post.frontmatter.title}
+          </Link>
+        </p>
+        <p>
+          {post.excerpt}
+        </p>
+      </div>
+    )
+  }
+
   render() {
     const {data} = this.props
     const {edges: posts} = data.allMarkdownRemark
@@ -23,7 +61,7 @@ export default class IndexPage extends React.Component {
               {posts
                 .map(({node: post}) => (
                   <div
-                    className="column is-one-quarter"
+                    className={post.frontmatter.featured ? "column is-two-thirds" : "column is-one-quarter"}
                     style={{border: '1px solid #eaecee'}}
                     key={post.id}
                   >
@@ -37,7 +75,10 @@ export default class IndexPage extends React.Component {
                       {post.excerpt}
                     </p>
                   </div>
-                ))}
+                )
+
+
+                )}
             </div>
           </div>
         )}
@@ -72,6 +113,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
+            featured
           }
         }
       }

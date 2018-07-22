@@ -7,6 +7,7 @@ description: Brewing with a Chemex probably seems like a complicated, time-consu
 tags:
   - Podcast
   - Lifestyle
+featured: false
 ---
 ![chemex](/img/chemex.jpg)
 

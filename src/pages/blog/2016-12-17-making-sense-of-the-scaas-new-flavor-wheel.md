@@ -11,6 +11,7 @@ tags:
   - Originals
   - Tech
   - Podcast
+featured: true
 ---
 ![this is for SEO ](/img/coffee-gear.png)
 
