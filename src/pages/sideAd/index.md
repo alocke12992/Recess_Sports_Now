@@ -1,5 +1,5 @@
 ---
-templateKey: headerAd
+templateKey: sideAd
 category: ad
 title: Side
 image: /img/uncledrewheader.jpg

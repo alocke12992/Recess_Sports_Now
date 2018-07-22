@@ -12,11 +12,13 @@ class TemplateWrapper extends React.Component {
   render() {
     const {children, data} = this.props
     const {edges: ads} = data.allMarkdownRemark
+    const headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === "headerAd")
+    const backgroundAndSideAds = ads.filter(ad => ad.node.frontmatter.templateKey !== "headerAd")
     return (
       <Grid centered>
         <Helmet title="Home | Gatsby + Netlify CMS" />
-        <Navbar headerAd={ads[2].node.frontmatter.image} />
-        <AdContext.Provider value={ads}>
+        <Navbar headerAd={headerAd[0].node.frontmatter.image} />
+        <AdContext.Provider value={backgroundAndSideAds}>
           <div>{children()}</div>
         </AdContext.Provider>
       </Grid>
