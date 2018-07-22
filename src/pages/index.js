@@ -19,7 +19,9 @@ export default class IndexPage extends React.Component {
             </div>
             <Carousel cellAlign="center">
               {car.map(({node: post}) => (
-                <img key={post.id} src={post.frontmatter.featuredImage} />
+                <Link to={post.fields.slug}>
+                  <img key={post.id} src={post.frontmatter.featuredImage} />
+                </Link>
               ))}
             </Carousel>
             <div className="columns is-multiline">
