@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import {AdContext} from '../components/AdContext';
-import Carousel from 'nuka-carousel';
+import HomeTop from '../components/HomeTop';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -13,17 +13,10 @@ export default class IndexPage extends React.Component {
       <AdContext.Consumer>
         {ads => (
           <div className="container">
-            {console.log(ads)}
             <div className="content">
               <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
             </div>
-            <Carousel cellAlign="center">
-              {car.map(({node: post}) => (
-                <Link to={post.fields.slug}>
-                  <img key={post.id} src={post.frontmatter.featuredImage} />
-                </Link>
-              ))}
-            </Carousel>
+            <HomeTop posts={car} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
             <div className="columns is-multiline">
               {posts
                 .map(({node: post}) => (
