@@ -2,28 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import {Grid} from 'semantic-ui-react';
+import {AdContext} from '../components/AdContext'
 
 import Navbar from '../components/Navbar'
 import './all.sass'
+
 
 class TemplateWrapper extends React.Component {
   render() {
     const {children, data} = this.props
     const {edges: ads} = data.allMarkdownRemark
-    console.log(ads)
     return (
-      <Grid columns={3}>
-        <Grid.Column width={4}>
-
-        </Grid.Column>
-        <Grid.Column width={4}>
-          <Helmet title="Home | Gatsby + Netlify CMS" />
-          <Navbar headerAd={ads[2].node.frontmatter.image} />
+      <Grid centered>
+        <Helmet title="Home | Gatsby + Netlify CMS" />
+        <Navbar headerAd={ads[2].node.frontmatter.image} />
+        <AdContext.Provider value={ads}>
           <div>{children()}</div>
-        </Grid.Column>
-        <Grid.Column width={4}>
-
-        </Grid.Column>
+        </AdContext.Provider>
       </Grid>
     )
   }

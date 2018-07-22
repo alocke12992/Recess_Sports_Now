@@ -29,11 +29,13 @@ class Navbar extends React.Component {
             <img src={this.props.headerAd} />
           </div>
         </Grid.Row>
-        <Splash>
-          <Logo src={RsnLogo} />
-        </Splash>
+        <Grid.Row>
+          <Splash>
+            <Logo src={RsnLogo} />
+          </Splash>
+        </Grid.Row>
         <Grid.Row centered>
-          <Center textAlign='center' width={16}>
+          <Center textAlign='center'>
             <Nav>
               <Link to="/" className="navbar-item">
                 Home
@@ -78,21 +80,21 @@ const IconImg = styled.img`
 `
 
 const Center = styled(Grid.Column)`
-      display: flex !important;
-      justify-content: center !important;
-      width: 100% !important;
-    `
+  display: flex !important;
+  justify-content: center !important;
+  
+`
 const Splash = styled(Center)`
       margin-bottom: -45px !important;
 `
 
 const Nav = styled(Menu)`
-      display: flex !important;
-      justify-content: space-around !important;
-      width: 80% !important;
-      color: #333;
-        font-size: 11px;
-        line-height: 19px;
-    `
+  display: flex !important;
+  justify-content: space-around !important;
+  width: 80% !important;
+  color: #333;
+  font-size: 11px;
+  line-height: 19px;
+`
 
 export default Navbar
