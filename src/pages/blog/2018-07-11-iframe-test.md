@@ -9,4 +9,5 @@ tags:
   - Podcast
   - Lifestyle
 featured: false
+carousel: false
 ---

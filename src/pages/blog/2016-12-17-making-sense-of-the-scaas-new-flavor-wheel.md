@@ -12,6 +12,7 @@ tags:
   - Tech
   - Podcast
 featured: false
+carousel: true
 ---
 ![this is for SEO ](/img/coffee-gear.png)
 

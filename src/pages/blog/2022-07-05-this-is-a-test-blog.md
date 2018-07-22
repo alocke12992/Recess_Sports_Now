@@ -7,6 +7,7 @@ description: a;sdlkfjaerpa;lkbnvaeorga;lkjfa;lewrkjfga;sdkljgvhn
 tags:
   - Business
 featured: true
+carousel: false
 ---
 Trisha Paytas shares a very emotional YouTube upload on her channel with over 1 million subscribers to let her fans know why she and long time boyfriend Jason Nash broke up. Nash, also a YouTuber with 1 million subscribers, seemed to have hit a very sensitive spot for Trisha and now there’s no going back.
 

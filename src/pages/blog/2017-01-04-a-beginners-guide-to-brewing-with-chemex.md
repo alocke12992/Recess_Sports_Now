@@ -8,6 +8,7 @@ tags:
   - Podcast
   - Lifestyle
 featured: false
+carousel: true
 ---
 ![chemex](/img/chemex.jpg)
 

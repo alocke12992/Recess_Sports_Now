@@ -5,10 +5,10 @@ import {AdContext} from '../components/AdContext';
 import Carousel from 'nuka-carousel';
 
 export default class IndexPage extends React.Component {
-
   render() {
     const {data} = this.props
     const {edges: posts} = data.allMarkdownRemark
+    const car = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (
       <AdContext.Consumer>
         {ads => (
@@ -18,7 +18,7 @@ export default class IndexPage extends React.Component {
               <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
             </div>
             <Carousel cellAlign="center">
-              {posts.map(({node: post}) => (
+              {car.map(({node: post}) => (
                 <img key={post.id} src={post.frontmatter.featuredImage} />
               ))}
             </Carousel>
@@ -77,6 +77,7 @@ export const pageQuery = graphql`
             templateKey
             date(formatString: "MMMM DD, YYYY")
             featured
+            carousel
           }
         }
       }
