@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/uncle-drew-2018-movie-poster.jpg
+featuredImage: /img/flavor_wheel.jpg
 title: 'See how easy it is Brett? '
 date: 2016-12-17T15:04:10.000Z
 description: >-
@@ -11,7 +11,7 @@ tags:
   - Originals
   - Tech
   - Podcast
-featured: true
+featured: false
 ---
 ![this is for SEO ](/img/coffee-gear.png)
 
