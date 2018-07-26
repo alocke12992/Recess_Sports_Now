@@ -7,7 +7,7 @@ const BackgroundAdPreview = ({ entry, getAsset }) => (
   title={entry.getIn(['data', 'title'])}
   image={entry.getIn(['data', 'image'])}
   link={entry.getIn(['data', 'link'])}
-  />
+  /> 
 )
 
 BackgroundAdPreview.propTypes = {
