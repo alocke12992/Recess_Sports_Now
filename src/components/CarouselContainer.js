@@ -6,7 +6,7 @@ const CarouselContainer = (props) => {
   const posts = props.posts
   console.log(posts)
   return (
-    <Carousel cellAlign="center">
+    <Carousel cellAlign="center" wrapAround={true}>
       {posts.map(({node: post}) => (
         <Link to={post.fields.slug}>
           <img key={post.id} src={post.frontmatter.featuredImage} />
