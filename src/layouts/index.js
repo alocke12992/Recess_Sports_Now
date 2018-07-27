@@ -14,13 +14,26 @@ class TemplateWrapper extends React.Component {
     const {edges: ads} = data.allMarkdownRemark
     const headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === "headerAd")
     return (
-      <Grid centered>
+      <div className="wrapper">
         <Helmet title="Home | Gatsby + Netlify CMS" />
-        <Navbar headerAd={headerAd[0].node.frontmatter.image} />
-        <AdContext.Provider value={ads.filter(ad => ad.node.frontmatter.templateKey !== "headerAd")}>
-          <div>{children()}</div>
-        </AdContext.Provider>
-      </Grid>
+        <div className="content">
+          <div className="columns">
+            <div className="main">
+              <Navbar headerAd={headerAd[0].node.frontmatter.image} />
+              <AdContext.Provider value={ads.filter(ad => ad.node.frontmatter.templateKey !== "headerAd")}>
+                <div>{children()}</div>
+              </AdContext.Provider>
+            </div>
+            <aside className="sidebar-first">
+              Content
+            </aside>
+            <aside className="sidebar-second">
+              Content
+            </aside>
+          </div>
+        </div> 
+      </div>
+        
     )
   }
 }

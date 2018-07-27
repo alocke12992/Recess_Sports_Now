@@ -55,44 +55,36 @@ $primary-invert: $kaldi-red-invert
 
 .fill img
   flex-shrink: 0
-  min-width: 100%
+  min-width: 50%
   min-height: 100%
 
-html,body
-  height: 100%
+.wrapper
+  min-height: 100vh
+  display: flex
+  flex-direction: column
 
-.wrap
-  width: 100%
-  height: 100%
-  position: relative
+.content 
+  display: flex
+  flex: 1
 
-.head
-  height: 100px
-  position: fixed
-  top: 0
-  left: 0
-  width: 100%
+.columns
+  display: flex
+  margin-left: 0rem !important
+  margin-right: 0rem !important
+  margin-top: 0rem !important
 
-.bodywrap
-  margin-top: 100px
-  
-.left,.right
-  width: 200px
-  top: 100px
-  bottom: 0px
-  position: fixed
+.main
+  flex: 1
+  order: 2
 
-.left,.center,.right,.bodywrap
-  height: 100%
+.sidebar-first
+  width: 20%
+  order: 1
 
-.center
-  margin: 100px 200px
-  
-.left
-  left: 0
+.sidebar-second 
+  width: 20%
+  order: 3
 
-.right
-  right: 0
 
 
 @import "~bulma"
