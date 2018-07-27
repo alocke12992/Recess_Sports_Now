@@ -1,5 +1,4 @@
 import React from 'react';
-import {Form} from 'semantic-ui-react';
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 
 class ContactForm extends React.Component {
@@ -11,6 +10,7 @@ class ContactForm extends React.Component {
   }
 
   handleSubmit = (e) => {
+    debugger
     e.preventDefault();
     const {firstName, lastName, email} = this.state
     console.log(firstName, lastName, email)
@@ -33,30 +33,35 @@ class ContactForm extends React.Component {
   render() {
     const {firstName, lastName, email} = this.state
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Input
-          label="First Name"
-          placeholder="First Name"
-          name="firstName"
-          value={firstName}
+      <form>
+        <input 
+          className="input" 
+          type="text" 
+          placeholder="First Name" 
+          name="firstName" 
+          value={firstName} 
           onChange={this.handleChange}
         />
-        <Form.Input
-          label="Last Name"
-          placeholder="Last Name"
-          name="lastName"
-          value={lastName}
+        <input 
+          className="input" 
+          type="text" 
+          placeholder="Last Name" 
+          name="lastName" 
+          value={lastName} 
           onChange={this.handleChange}
         />
-        <Form.Input
-          label="Email"
-          placeholder="Email"
-          name="email"
-          value={email}
+        <input
+          className="input" 
+          type="email" 
+          placeholder="Email" 
+          name="email" 
+          value={email} 
           onChange={this.handleChange}
         />
-        <Form.Button>Submit</Form.Button>
-      </Form>
+        <div className="control">
+          <button className="button is-primary" onClick={this.handleSubmit}>Submit</button>
+        </div>
+      </form>
 
     )
   }

@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import ContactForm from '../components/ContactForm';
 class Contact extends React.Component {
 render(){
   return(
-    <div>contact</div>
+    <div>
+      <ContactForm />
+    </div>
   )
 }
 
