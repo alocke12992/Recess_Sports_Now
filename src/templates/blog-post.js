@@ -62,7 +62,6 @@ BlogPostTemplate.propTypes = {
 const BlogPost = ({data}) => {
   const {markdownRemark: post} = data
   if (post.frontmatter.source) {
-    debugger
     return (
       <SamplePost
         source={post.frontmatter.source}
