@@ -15,7 +15,8 @@ description: >+
   vel turpis. Curabitur orci enim, congue eu aliquam a, ullamcorper et massa.
   Proin varius porta nibh, nec sollicitudin quam condimentum at.
 
-source: Netflix Developing Biopic on Nike Founder Phil Knight
+source: >-
+  https://variety.com/2018/film/news/netflix-phil-knight-biopic-shoe-dog-1202887364/
 tags:
   - Entertainment
   - Biography
