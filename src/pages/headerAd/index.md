@@ -2,7 +2,7 @@
 templateKey: headerAd
 category: ad
 title: Header
-image: /img/uncle-drew-movie.jpg
+image: /img/flavor_wheel.jpg
 link: 'http://www.espn.com/'
 ---
 
