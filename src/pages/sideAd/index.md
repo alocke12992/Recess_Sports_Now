@@ -2,6 +2,7 @@
 templateKey: sideAd
 category: ad
 title: Side
-image: /img/uncledrewheader.jpg
-link: http://www.espn.com/
+image: /img/61h-pmk8mol._sl500_.jpg
+link: 'http://www.espn.com/'
 ---
+
