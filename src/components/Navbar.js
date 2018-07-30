@@ -23,48 +23,50 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Grid centered>
-        <Grid.Row centered>
-          <div className='fill'>
-            <img src={this.props.headerAd} />
+    <div className="container">
+      <div className="tile is-ancestor">
+        <div className="tile is-vertical is-12">
+          <div className="tile">
+            <div className="tile is-parent is-vertical">
+              <article className="tile is-child">
+                <img src={this.props.headerAd} />
+              </article>
+              <article className="tile is-child">
+                <img src={RsnLogo} />
+              </article>
+              <nav className="navbar" role="navigation" aria-label="main navigation">
+                <div className="navbar-menu">
+                  <Link to="/" className="navbar-item">
+                    Home
+                  </Link>
+                  {tags.map(tag => (
+                    <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                  ))}
+                  <Link className="navbar-item" to="/contact">
+                    Contact
+                  </Link>
+                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                    <IconImg src={Info} />
+                  </a>
+                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                    <IconImg src={FacebookLogo} />
+                  </a>
+                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                    <IconImg src={Twitter} />
+                  </a>
+                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                    <IconImg src={Instagram} />
+                  </a>
+                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                    <IconImg src={Youtube} />
+                  </a>
+                </div>
+              </nav>
+            </div>
           </div>
-        </Grid.Row>
-        <Grid.Row>
-          <Splash>
-            <Logo src={RsnLogo} />
-          </Splash>
-        </Grid.Row>
-        <Grid.Row centered>
-          <Center textAlign='center'>
-            <Nav>
-              <Link to="/" className="navbar-item">
-                Home
-              </Link>
-              {tags.map(tag => (
-                <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-              ))}
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Info} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={FacebookLogo} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Twitter} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Instagram} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Youtube} />
-              </a>
-            </Nav>
-          </Center>
-        </Grid.Row>
-      </Grid>
+        </div>
+      </div>  
+    </div>      
     )
   }
 }
