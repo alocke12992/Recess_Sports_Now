@@ -6,17 +6,18 @@ import ContactForm from './ContactForm';
 const HomeTop = (props) => (
   <div className="columns">
     <div className="column is-two-thirds">
-      <CarouselContainer posts={props.posts} />
+      <div className="container">
+        <CarouselContainer posts={props.posts} />
+      </div>
     </div>
     <div className="column">
-    <div class="tile is-ancestor">
-      <div class="tile is-vertical is-12">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child">
+      <div className="tile is-ancestor">
+        <div className="tile is-vertical is-12">
+          <div className="tile is-parent is-vertical">
+            <article className="tile is-child">
               <Image src={props.ad[0].node.frontmatter.image} />
             </article>
-            <article class="tile is-child box">
+            <article className="tile is-child box">
               <h1>Subscribe</h1>
               <ContactForm />
             </article>
@@ -25,7 +26,6 @@ const HomeTop = (props) => (
       </div>
     </div>
   </div>
-</div> 
 )
 
 export default HomeTop

@@ -23,50 +23,50 @@ class Navbar extends React.Component {
 
   render() {
     return (
-    <div className="container">
-      <div className="tile is-ancestor">
-        <div className="tile is-vertical is-12">
-          <div className="tile">
-            <div className="tile is-parent is-vertical">
-              <article className="tile is-child">
-                <img src={this.props.headerAd} />
-              </article>
-              <article className="tile is-child">
-                <img src={RsnLogo} />
-              </article>
-              <nav className="navbar" role="navigation" aria-label="main navigation">
-                <div className="navbar-menu">
-                  <Link to="/" className="navbar-item">
-                    Home
-                  </Link>
-                  {tags.map(tag => (
-                    <Link key={tag + `tag`} className="navbar-item" to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                  ))}
-                  <Link className="navbar-item" to="/contact">
-                    Contact
-                  </Link>
-                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                    <IconImg src={Info} />
-                  </a>
-                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                    <IconImg src={FacebookLogo} />
-                  </a>
-                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                    <IconImg src={Twitter} />
-                  </a>
-                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                    <IconImg src={Instagram} />
-                  </a>
-                  <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                    <IconImg src={Youtube} />
-                  </a>
+      <div className="columns">
+        <div className="column">
+            <figure className="image is-2by1">
+              <img src={this.props.headerAd} />
+            </figure>
+          <figure className="image">
+            <img src={RsnLogo} />
+          </figure>
+          <nav className="navbar is" role="navigation" aria-label="main navigation">
+            <div className="navbar-menu">
+              <div className="navbar-item">
+                <Link to="/">
+                  Home
+                </Link>
+              </div>
+              {tags.map(tag => (
+                <div key={tag + `tag`} className="navbar-item">
+                  <Link  to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                 </div>
-              </nav>
+              ))}
+              <div className="navbar-item">
+                <Link to="/contact">
+                  Contact
+                </Link>
+              </div>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Info} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={FacebookLogo} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Twitter} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Instagram} />
+              </a>
+              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+                <IconImg src={Youtube} />
+              </a>
             </div>
-          </div>
-        </div>
-      </div>  
-    </div>      
+          </nav>
+        </div>     
+      </div>
     )
   }
 }

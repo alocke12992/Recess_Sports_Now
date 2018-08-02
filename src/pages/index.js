@@ -8,15 +8,12 @@ export default class IndexPage extends React.Component {
   render() {
     const {data} = this.props
     const {edges: posts} = data.allMarkdownRemark
-    const car = posts.filter(({node: post}) => post.frontmatter.carousel === true)
+    const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (
       <AdContext.Consumer>
         {ads => (
           <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
-            <HomeTop posts={car} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
+            <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
             <div className="columns is-multiline">
               {posts
                 .map(({node: post}) => (
