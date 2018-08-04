@@ -14,9 +14,9 @@ export default class IndexPage extends React.Component {
         {ads => (
           <section className='section'>
             <div className='columns'>
-              <div className='column is-one-fifth'>
+              <div className='column is-2'>
               </div>
-              <div className='column is-half'>
+              <div className='column is-8'>
                 <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
                 <div className="columns is-multiline">
                   {posts
@@ -40,7 +40,7 @@ export default class IndexPage extends React.Component {
                     )}
                 </div>
               </div>
-              <div className='column is-one-fifth'>
+              <div className='column is-2'>
               </div>
             </div>
           </section>

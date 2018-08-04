@@ -6,9 +6,7 @@ import ContactForm from './ContactForm';
 const HomeTop = (props) => (
   <div className="columns">
     <div className="column is-two-thirds">
-      <div className="container">
-        <CarouselContainer posts={props.posts} />
-      </div>
+      <CarouselContainer posts={props.posts} />
     </div>
     <div className="column">
       <div className="tile is-ancestor">
