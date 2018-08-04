@@ -12,6 +12,7 @@ class TemplateWrapper extends React.Component {
 
   showWebsite = () => {
     const {children, data} = this.props
+    console.log(data)
     const {edges: ads} = data.allMarkdownRemark
     const headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === "headerAd")
     return (
@@ -41,22 +42,12 @@ class TemplateWrapper extends React.Component {
 
 
   render() {
-    const {isAuthenticated, password} = this.state
-    if (isAuthenticated) {
-      return (
-        <section className="section" >
-          <Helmet title="Recess Sports Now" />
-          {this.showWebsite()}
-        </section>
-      )
-    } else {
-      return (
-        <section className="section">
-          <Helmet title="Recess Sports Now" />
-          <Login closeForm={this.toggleForm} password={password} />
-        </section>
-      )
-    }
+    return (
+      <section className="section" >
+        <Helmet title="Recess Sports Now" />
+        {this.showWebsite()}
+      </section>
+    )
   }
 }
 
