@@ -12,30 +12,38 @@ export default class IndexPage extends React.Component {
     return (
       <AdContext.Consumer>
         {ads => (
-          <div className="container">
-            <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-            <div className="columns is-multiline">
-              {posts
-                .map(({node: post}) => (
-                  <div
-                    className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
-                    style={{border: '1px solid #eaecee'}}
-                    key={post.id}
-                  >
-                    <img src={post.frontmatter.featuredImage} />
-                    <p>
-                      <Link className="has-text-primary" to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                    </p>
-                    <p>
-                      {post.excerpt}
-                    </p>
-                  </div>
-                )
-                )}
+          <section className='section'>
+            <div className='columns'>
+              <div className='column is-one-fifth'>
+              </div>
+              <div className='column is-half'>
+                <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
+                <div className="columns is-multiline">
+                  {posts
+                    .map(({node: post}) => (
+                      <div
+                        className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
+                        style={{border: '1px solid #eaecee'}}
+                        key={post.id}
+                      >
+                        <img src={post.frontmatter.featuredImage} />
+                        <p>
+                          <Link className="has-text-primary" to={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </p>
+                        <p>
+                          {post.excerpt}
+                        </p>
+                      </div>
+                    )
+                    )}
+                </div>
+              </div>
+              <div className='column is-one-fifth'>
+              </div>
             </div>
-          </div>
+          </section>
         )}
       </AdContext.Consumer>
     )
