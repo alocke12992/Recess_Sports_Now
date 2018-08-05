@@ -8,15 +8,14 @@ import Twitter from '../img/twitter-logo.svg';
 import Youtube from '../img/youtube-logo.svg';
 import Instagram from '../img/instagram-logo.svg';
 import Info from '../img/info.svg';
-import {Menu, Image, Grid} from 'semantic-ui-react';
 
 const tags = [
-  "Entertainment",
-  "Business",
-  "Tech",
-  "Lifestyle",
-  "podcast",
-  "Originals",
+  "ENTERTAINMENT",
+  "BUSINESS",
+  "TECH",
+  "LIFESTYLE",
+  "PODCAST",
+  "ORIGINALS",
 ]
 
 class Navbar extends React.Component {
@@ -24,79 +23,52 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="columns">
-        <div className="column">
-            <figure className="image is-2by1">
-              <img src={this.props.headerAd} />
-            </figure>
-          <figure className="image">
-            <img src={RsnLogo} />
+        <div className="column is-8 is-offset-2">
+          <figure className="image is-3by1">
+            <img src={this.props.headerAd} style={{height: '250px'}} />
           </figure>
-          <nav className="navbar is" role="navigation" aria-label="main navigation">
-            <div className="navbar-menu">
-              <div className="navbar-item">
-                <Link to="/">
-                  Home
-                </Link>
-              </div>
-              {tags.map(tag => (
-                <div key={tag + `tag`} className="navbar-item">
-                  <Link  to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                </div>
-              ))}
-              <div className="navbar-item">
-                <Link to="/contact">
-                  Contact
-                </Link>
-              </div>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Info} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={FacebookLogo} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Twitter} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Instagram} />
-              </a>
-              <a className="navbar-item" href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-                <IconImg src={Youtube} />
-              </a>
+          <div className="columns" style={{paddingTop: '10px'}}>
+            <div className='column is-one-third is-offset-4'>
+              <figure className="image is-3by1">
+                <img src={RsnLogo} />
+              </figure>
             </div>
+          </div>
+          <nav className="navbar" role="navigation" aria-label="main navigation">
+            <Link to="/">
+              HOME
+            </Link>
+            {tags.map(tag => (
+              <Link key={tag + 'tag'} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+            ))}
+            <Link to="/contact">
+              CONTACT
+            </Link>
+            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+              <IconImg src={Info} />
+            </a>
+            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+              <IconImg src={FacebookLogo} />
+            </a>
+            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+              <IconImg src={Twitter} />
+            </a>
+            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+              <IconImg src={Instagram} />
+            </a>
+            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+              <IconImg src={Youtube} />
+            </a>
           </nav>
-        </div>     
+        </div>
       </div>
     )
   }
 }
 
-const Logo = styled(Image)`
-      height: 200px !important;
-      margin-bottom: 15px !important;
-`
-
 const IconImg = styled.img`
-  height: 21px;
-  width: 21px;
-`
-
-const Center = styled(Grid.Column)`
-  display: flex !important;
-  justify-content: center !important;
-  
-`
-const Splash = styled(Center)`
-      margin-bottom: -45px !important;
-`
-
-const Nav = styled(Menu)`
-  display: flex !important;
-  justify-content: space-around !important;
-  width: 80% !important;
-  color: #333;
-  font-size: 11px;
-  line-height: 19px;
+  height: auto;
+  width: 100%;
 `
 
 export default Navbar

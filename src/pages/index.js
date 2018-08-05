@@ -23,7 +23,7 @@ export default class IndexPage extends React.Component {
                     .map(({node: post}) => (
                       <div
                         className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
-                        style={{border: '1px solid #eaecee'}}
+                        style={{border: '0.5px solid #eaecee'}}
                         key={post.id}
                       >
                         <img src={post.frontmatter.featuredImage} />

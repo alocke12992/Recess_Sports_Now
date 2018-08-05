@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'Recess Sports Now',
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Roboto\:400,500`,
+        ]
+      }
+    },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
