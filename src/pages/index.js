@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import {AdContext} from '../components/AdContext';
 import HomeTop from '../components/HomeTop';
+import BackgroundAd from '../components/BackgroundAd';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -12,38 +13,31 @@ export default class IndexPage extends React.Component {
     return (
       <AdContext.Consumer>
         {ads => (
-          <section className='section'>
-            <div className='columns'>
-              <div className='column is-2'>
-              </div>
-              <div className='column is-8'>
-                <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-                <div className="columns is-multiline">
-                  {posts
-                    .map(({node: post}) => (
-                      <div
-                        className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
-                        style={{border: '0.5px solid #eaecee'}}
-                        key={post.id}
-                      >
-                        <img src={post.frontmatter.featuredImage} />
-                        <p>
-                          <Link className="has-text-primary" to={post.fields.slug}>
-                            {post.frontmatter.title}
-                          </Link>
-                        </p>
-                        <p>
-                          {post.excerpt}
-                        </p>
-                      </div>
-                    )
-                    )}
-                </div>
-              </div>
-              <div className='column is-2'>
+          <div className='columns'>
+            <div className='column is-8 is-offset-2 mainContent'>
+              <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
+              <div className="columns is-multiline">
+                {posts
+                  .map(({node: post}) => (
+                    <div
+                      className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
+                      key={post.id}
+                    >
+                      <img src={post.frontmatter.featuredImage} />
+                      <p style={{fontSize: '0.5em'}}>
+                        <Link className="has-text-primary" to={post.fields.slug}>
+                          {post.frontmatter.title}
+                        </Link>
+                      </p>
+                      <p style={{fontSize: '0.4em'}}>
+                        {post.excerpt}
+                      </p>
+                    </div>
+                  )
+                  )}
               </div>
             </div>
-          </section>
+          </div>
         )}
       </AdContext.Consumer>
     )

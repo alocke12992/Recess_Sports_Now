@@ -5,6 +5,7 @@ import {AdContext} from '../components/AdContext';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
 import './all.sass';
+import {consolidateStreamedStyles} from '../../node_modules/styled-components';
 
 
 class TemplateWrapper extends React.Component {
@@ -19,16 +20,17 @@ class TemplateWrapper extends React.Component {
   render() {
     const {children, data} = this.props
     const {edges: ads} = data.allMarkdownRemark
-    const headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
+    let headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
+    // let backgroundAd = ads[0].node.frontmatter.templateKey === "backgroundAd"
     return (
       <Fragment>
         <Helmet title="Recess Sports Now" />
-        <section className="section navTop">
+        <div style={{backgroundImage: `url(${ads[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}}>
           <Navbar headerAd={headerAd[0].node.frontmatter.image} />
-        </section>
-        <AdContext.Provider value={ads}>
-          <div>{children()}</div>
-        </AdContext.Provider>
+          <AdContext.Provider value={ads}>
+            <div style={{marginTop: '0px'}}>{children()}</div>
+          </AdContext.Provider>
+        </div>
       </Fragment>
     )
   }

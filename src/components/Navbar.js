@@ -22,12 +22,12 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <div className="columns">
-        <div className="column is-8 is-offset-2">
+      <div className="columns" style={{marginBottom: '0px'}}>
+        <div className="column is-8 is-offset-2 navWrapper">
           <figure className="image is-3by1">
             <img src={this.props.headerAd} style={{height: '250px'}} />
           </figure>
-          <div className="columns" style={{paddingTop: '10px'}}>
+          <div className="columns" style={{paddingTop: '20px'}}>
             <div className='column is-one-third is-offset-4'>
               <figure className="image is-3by1">
                 <img src={RsnLogo} />
