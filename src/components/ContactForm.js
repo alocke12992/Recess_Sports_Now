@@ -33,29 +33,29 @@ class ContactForm extends React.Component {
   render() {
     const {firstName, lastName, email} = this.state
     return (
-      <form>
-        <input 
-          className="input" 
-          type="text" 
-          placeholder="First Name" 
-          name="firstName" 
-          value={firstName} 
-          onChange={this.handleChange}
-        />
-        <input 
-          className="input" 
-          type="text" 
-          placeholder="Last Name" 
-          name="lastName" 
-          value={lastName} 
+      <form className="contactForm">
+        <input
+          className="input"
+          type="text"
+          placeholder="First Name"
+          name="firstName"
+          value={firstName}
           onChange={this.handleChange}
         />
         <input
-          className="input" 
-          type="email" 
-          placeholder="Email" 
-          name="email" 
-          value={email} 
+          className="input"
+          type="text"
+          placeholder="Last Name"
+          name="lastName"
+          value={lastName}
+          onChange={this.handleChange}
+        />
+        <input
+          className="input"
+          type="email"
+          placeholder="Email"
+          name="email"
+          value={email}
           onChange={this.handleChange}
         />
         <div className="control">

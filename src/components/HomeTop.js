@@ -15,8 +15,8 @@ const HomeTop = (props) => (
             <article className="tile is-child">
               <Image src={props.ad[0].node.frontmatter.image} />
             </article>
-            <article className="tile is-child box">
-              <h1>Subscribe</h1>
+            <article className="tile is-child">
+              <h1 style={{fontFamily: 'Roboto'}}>Subscribe</h1>
               <ContactForm />
             </article>
           </div>
