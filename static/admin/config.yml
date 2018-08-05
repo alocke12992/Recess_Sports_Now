@@ -21,8 +21,8 @@ collections:
       - {label: "Source", name: "source", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown", required: false}
       - {label: "Tags", name: "tags", widget: "list"}
-      - {label: "Featured", name: "featured", widget: "boolean"}
-      - {label: "Show in Carousel", name: "carousel", widget: "boolean"}
+      - {label: "Featured", name: "featured", widget: "boolean", required: false}
+      - {label: "Show in Carousel", name: "carousel", widget: "boolean", required: false}
   - name: "ads"
     label: "Ads"
     files:
