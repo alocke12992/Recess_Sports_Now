@@ -11,7 +11,7 @@ tags:
   - Food
   - Joel Embiid
   - Entertainment
-featured: true
+featured: false
 carousel: true
 ---
 
