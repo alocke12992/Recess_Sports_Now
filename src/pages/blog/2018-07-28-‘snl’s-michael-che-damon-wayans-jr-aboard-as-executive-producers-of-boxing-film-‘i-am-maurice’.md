@@ -18,6 +18,6 @@ tags:
   - Comedy
   - Boxing
 featured: true
-carousel: true
+carousel: false
 ---
 
