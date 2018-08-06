@@ -8,7 +8,7 @@ import './all.sass';
 
 
 class TemplateWrapper extends React.Component {
-  state = {password: 'Playground2018', isAuthenticated: false}
+  state = {password: 'Playground2018', isAuthenticated: false, location: ''}
 
   toggleForm = () => {
     this.setState((state) => {
@@ -17,26 +17,42 @@ class TemplateWrapper extends React.Component {
   }
 
   render() {
+    console.log(this.props.location)
     const {children, data} = this.props
     const {edges: ads} = data.allMarkdownRemark
     let headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
-    let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === "backgroundAd")
-    return (
-      <Fragment>
-        <Helmet title="Recess Sports Now" />
-        {
-          this.state.isAuthenticated ?
+    let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
+    if (this.state.isAuthenticated) {
+      if (this.props.location.pathname === "/") {
+        return (
+          <Fragment>
+            <Helmet title="Recess Sports Now" />
             <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}}>
               <Navbar headerAd={headerAd[0].node.frontmatter.image} />
               <AdContext.Provider value={ads}>
                 <div style={{marginTop: '0px'}}>{children()}</div>
               </AdContext.Provider>
             </div>
-            :
-            <Login closeForm={this.toggleForm} password={this.state.password} />
-        }
-      </Fragment>
-    )
+          </Fragment>
+        )
+      } else {
+        return (
+          <Fragment>
+            <Helmet title="Recess Sports Now" />
+            <div>
+              <Navbar headerAd={headerAd[0].node.frontmatter.image} />
+              <AdContext.Provider value={ads}>
+                <div style={{marginTop: '0px'}}>{children()}</div>
+              </AdContext.Provider>
+            </div>
+          </Fragment>
+        )
+      }
+    } else {
+      return (
+        <Login password={this.state.password} closeForm={this.toggleForm} />
+      )
+    }
   }
 }
 

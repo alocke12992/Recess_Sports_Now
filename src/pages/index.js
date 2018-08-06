@@ -16,7 +16,7 @@ export default class IndexPage extends React.Component {
           <div className='columns'>
             <div className='column is-8 is-offset-2 mainContent'>
               <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-              <div className="columns is-multiline">
+              <div className="columns is-multiline postWrapper">
                 {posts
                   .map(({node: post}) => (
                     <div
