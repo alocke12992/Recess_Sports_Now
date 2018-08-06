@@ -1,9 +1,9 @@
 ---
 templateKey: blog-post
 featuredImage: /img/flavor_wheel.jpg
-title: This is a test blog
+title: SHowing how this works
 date: '2018-07-05T17:42:40-06:00'
-description: a;sdlkfjaerpa;lkbnvaeorga;lkjfa;lewrkjfga;sdkljgvhn
+description: This is a description
 tags:
   - Business
 featured: false
