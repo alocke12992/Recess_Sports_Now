@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import {AdContext} from '../components/AdContext';
 import HomeTop from '../components/HomeTop';
 import BackgroundAd from '../components/BackgroundAd';
+import Post from '../components/Post';
 
 export default class IndexPage extends React.Component {
   render() {
@@ -19,19 +20,8 @@ export default class IndexPage extends React.Component {
               <div className="columns is-multiline postWrapper">
                 {posts
                   .map(({node: post}) => (
-                    <div
-                      className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}
-                      key={post.id}
-                    >
-                      <img src={post.frontmatter.featuredImage} />
-                      <p style={{fontSize: '0.5em'}}>
-                        <Link className="has-text-primary" to={post.fields.slug}>
-                          {post.frontmatter.title}
-                        </Link>
-                      </p>
-                      <p style={{fontSize: '0.4em'}}>
-                        {post.excerpt}
-                      </p>
+                    <div key={post.id} className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}>
+                      <Post post={post} />
                     </div>
                   )
                   )}

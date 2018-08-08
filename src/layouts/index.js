@@ -22,7 +22,7 @@ class TemplateWrapper extends React.Component {
     const {edges: ads} = data.allMarkdownRemark
     let headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
     let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
-    if (this.state.isAuthenticated) {
+    // if (this.state.isAuthenticated) {
       if (this.props.location.pathname === "/") {
         return (
           <Fragment>
@@ -48,11 +48,11 @@ class TemplateWrapper extends React.Component {
           </Fragment>
         )
       }
-    } else {
-      return (
-        <Login password={this.state.password} closeForm={this.toggleForm} />
-      )
-    }
+    // } else {
+    //   return (
+    //     <Login password={this.state.password} closeForm={this.toggleForm} />
+    //   )
+    // }
   }
 }
 

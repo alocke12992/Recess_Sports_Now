@@ -20,6 +20,38 @@ const tags = [
 
 class Navbar extends React.Component {
 
+  links = () => {
+    return (
+      <div>
+
+      <Link to="/">
+        HOME
+      </Link>
+      {tags.map(tag => (
+        <Link key={tag + 'tag'} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+      ))}
+      <Link to="/contact">
+        CONTACT
+      </Link>
+      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+        <IconImg src={Info} />
+      </a>
+      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+        <IconImg src={FacebookLogo} />
+      </a>
+      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+        <IconImg src={Twitter} />
+      </a>
+      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+        <IconImg src={Instagram} />
+      </a>
+      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+        <IconImg src={Youtube} />
+      </a>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className="columns" style={{marginBottom: '0px'}}>
@@ -67,8 +99,8 @@ class Navbar extends React.Component {
 }
 
 const IconImg = styled.img`
-  height: auto;
-  width: 100%;
+  height: 1em;
+  width: 1em;
 `
 
 export default Navbar
