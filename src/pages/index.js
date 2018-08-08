@@ -17,10 +17,10 @@ export default class IndexPage extends React.Component {
           <div className='columns'>
             <div className='column is-8 is-offset-2 mainContent'>
               <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-              <div className="columns is-multiline postWrapper">
+              <div className="containerGrid">
                 {posts
                   .map(({node: post}) => (
-                    <div key={post.id} className={post.frontmatter.featured ? "column is-one-third" : "column is-one-quarter"}>
+                    <div key={post.id} className={post.frontmatter.featured ? "big" : ""}>
                       <Post post={post} />
                     </div>
                   )
