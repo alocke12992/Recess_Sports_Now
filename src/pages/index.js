@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import {AdContext} from '../components/AdContext';
 import HomeTop from '../components/HomeTop';
-import BackgroundAd from '../components/BackgroundAd';
 import Post from '../components/Post';
 
 export default class IndexPage extends React.Component {
@@ -20,7 +18,7 @@ export default class IndexPage extends React.Component {
               <div className="containerGrid">
                 {posts
                   .map(({node: post}) => (
-                    <div key={post.id} className={post.frontmatter.featured ? "big" : ""}>
+                    <div key={post.id} className={post.frontmatter.featured ? "big item" : "item"}>
                       <Post post={post} />
                     </div>
                   )

@@ -1,18 +1,12 @@
-import React from 'react'
-
+import React, {Fragment} from 'react';
+import Link from 'gatsby-link';
 const Post = (post) => (
-  <div>
+  <Fragment>
     {console.log(post)}
+  <Link to={post.post.fields.slug}>
     <img src={post.post.frontmatter.featuredImage} />
-    <p style={{fontSize: '0.5em'}}>
-      {/* <Link className="has-text-primary" to={slug}> */}
-      {post.post.frontmatter.title}
-      {/* </Link> */}
-    </p>
-    <p style={{fontSize: '0.4em'}}>
-      {post.post.frontmatter.excerpt}
-    </p>
-  </div>
+  </Link>
+  </Fragment>
 )
 
 export default Post
