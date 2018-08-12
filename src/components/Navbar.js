@@ -1,56 +1,9 @@
 import React from 'react';
-import Link from 'gatsby-link';
-import {kebabCase} from 'lodash';
 import RsnLogo from '../img/splashLogo.png';
-import styled from 'styled-components';
-import FacebookLogo from '../img/facebook-icon.svg';
-import Twitter from '../img/twitter-logo.svg';
-import Youtube from '../img/youtube-logo.svg';
-import Instagram from '../img/instagram-logo.svg';
-import Info from '../img/info.svg';
+import Search from './Search';
+import NavMenu from './NavMenu';
 
-const tags = [
-  "ENTERTAINMENT",
-  "BUSINESS",
-  "TECH",
-  "LIFESTYLE",
-  "PODCAST",
-  "ORIGINALS",
-]
-
-class Navbar extends React.Component {
-
-  links = () => {
-    return (
-      <div>
-
-      <Link to="/">
-        HOME
-      </Link>
-      {tags.map(tag => (
-        <Link key={tag + 'tag'} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-      ))}
-      <Link to="/contact">
-        CONTACT
-      </Link>
-      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-        <IconImg src={Info} />
-      </a>
-      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-        <IconImg src={FacebookLogo} />
-      </a>
-      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-        <IconImg src={Twitter} />
-      </a>
-      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-        <IconImg src={Instagram} />
-      </a>
-      <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-        <IconImg src={Youtube} />
-      </a>
-      </div>
-    )
-  }
+class NavbarComponent extends React.Component {
 
   render() {
     return (
@@ -66,41 +19,21 @@ class Navbar extends React.Component {
               </figure>
             </div>
           </div>
-          <nav className="navbar" role="navigation" aria-label="main navigation">
-            <Link to="/">
-              HOME
-            </Link>
-            {tags.map(tag => (
-              <Link key={tag + 'tag'} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-            ))}
-            <Link to="/contact">
-              CONTACT
-            </Link>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <IconImg src={Info} />
-            </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <IconImg src={FacebookLogo} />
-            </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <IconImg src={Twitter} />
-            </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <IconImg src={Instagram} />
-            </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <IconImg src={Youtube} />
-            </a>
-          </nav>
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <NavMenu toggleSearch={this.props.toggleSearch} />
+              {
+                this.props.showSearch ?
+                  <Search getSearch={this.props.getSearch} toggleSearch={this.props.toggleSearch} />
+                  :
+                  null
+              }
+            </div>
+          </div>
         </div>
       </div>
     )
   }
 }
 
-const IconImg = styled.img`
-  height: 1em;
-  width: 1em;
-`
-
-export default Navbar
+export default NavbarComponent

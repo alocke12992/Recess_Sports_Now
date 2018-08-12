@@ -1,31 +1,100 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {AdContext} from '../components/AdContext';
 import HomeTop from '../components/HomeTop';
 import Post from '../components/Post';
 
 export default class IndexPage extends React.Component {
-  render() {
+
+  showAllPosts(passedProps) {
     const {data} = this.props
     const {edges: posts} = data.allMarkdownRemark
     const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (
-      <AdContext.Consumer>
-        {ads => (
-          <div className='columns'>
-            <div className='column is-8 is-offset-2 mainContent'>
-              <HomeTop posts={carouselImages} ad={ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-              <div className="containerGrid">
-                {posts
-                  .map(({node: post}) => (
-                    <div key={post.id} className={post.frontmatter.featured ? "big item" : "item"}>
-                      <Post post={post} />
-                    </div>
-                  )
-                  )}
-              </div>
-            </div>
+      <div className='columns'>
+        <div className='column is-8 is-offset-2 mainContent'>
+          <HomeTop posts={carouselImages} ad={passedProps.ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
+          <div className="containerGrid">
+            {posts
+              .map(({node: post}) => (
+                <div key={post.id} className={post.frontmatter.featured ? "big item" : "item"}>
+                  <Post post={post} />
+                </div>
+              )
+              )}
           </div>
+        </div>
+      </div>
+    )
+  }
+
+  filterPosts(posts, searchTerm) {
+    let filteredPosts = []
+    posts.forEach(post => {
+      let tags = post.node.frontmatter.tags
+      tags.forEach(tag => {
+        tag = tag.toLowerCase()
+        if (tag.includes(searchTerm)) {
+          filteredPosts.push(post)
+        }
+      })
+    })
+    return filteredPosts
+  }
+
+  showSearch(passedProps) {
+    const {data} = this.props
+    const {edges: posts} = data.allMarkdownRemark
+    let searchTerm = passedProps.searchTerm.toLowerCase()
+    let filteredPosts = []
+    if (searchTerm !== "") {
+      posts.forEach(post => {
+        let tags = post.node.frontmatter.tags
+        tags.forEach(tag => {
+          tag = tag.toLowerCase()
+          if (tag.includes(searchTerm)) {
+            filteredPosts.push(post)
+          }
+        })
+      })
+    }
+    return (
+      <div className='columns'>
+        <div className='column is-8 is-offset-2 mainContent'>
+          {
+            passedProps.searchTerm !== "" ?
+              <div>
+
+                <h2>{filteredPosts.length} Posts tagged with "{passedProps.searchTerm}"</h2>
+                <div className="containerGrid">
+                  {filteredPosts
+                    .map(({node: post}) => (
+                      <div key={post.id} className={post.frontmatter.featured ? "big item" : "item"}>
+                        <Post post={post} />
+                      </div>
+                    )
+                    )}
+                </div>
+              </div>
+              :
+              null
+          }
+        </div>
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <AdContext.Consumer>
+        {props => (
+          <Fragment>
+            {props.showSearch ?
+              this.showSearch(props)
+              :
+              this.showAllPosts(props)
+            }
+          </Fragment>
         )}
       </AdContext.Consumer>
     )
@@ -60,6 +129,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             featured
             carousel
+            tags
           }
         }
       }

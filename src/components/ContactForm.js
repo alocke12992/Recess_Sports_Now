@@ -10,7 +10,6 @@ class ContactForm extends React.Component {
   }
 
   handleSubmit = (e) => {
-    debugger
     e.preventDefault();
     const {firstName, lastName, email} = this.state
     console.log(firstName, lastName, email)
