@@ -9,14 +9,16 @@ class NavbarComponent extends React.Component {
     return (
       <div className="columns" style={{marginBottom: '0px'}}>
         <div className="column is-8 is-offset-2 navWrapper">
-          <figure className="image is-3by1">
-            <img src={this.props.headerAd} style={{height: '250px'}} />
-          </figure>
-          <div className="columns" style={{paddingTop: '20px'}}>
-            <div className='column is-one-third is-offset-4'>
-              <figure className="image is-3by1">
-                <img src={RsnLogo} />
-              </figure>
+          <div>
+            <figure className="image is-3by1">
+              <img src={this.props.headerAd} style={{height: '250px'}} />
+            </figure>
+            <div className="columns" style={{paddingTop: '20px'}}>
+              <div className='column is-one-third is-offset-4'>
+                <figure className="image is-3by1">
+                  <img src={RsnLogo} />
+                </figure>
+              </div>
             </div>
           </div>
           <div className="columns">

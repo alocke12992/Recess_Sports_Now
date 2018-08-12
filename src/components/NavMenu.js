@@ -36,7 +36,7 @@ class NavMenu extends React.Component {
               CATEGORIES
               <NavbarDropdown>
                 {tags.map(tag => (
-                  <NavbarItem><Link key={tag + 'tag'} to={`/tags/${kebabCase(tag)}/`}>{tag}</Link></NavbarItem>
+                  <NavbarItem key={tag + 'tag'}><Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link></NavbarItem>
                 ))}
               </NavbarDropdown>
             </NavbarItem>

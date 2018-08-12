@@ -84,6 +84,10 @@ export default class IndexPage extends React.Component {
     )
   }
 
+  likePosts = () => {
+
+  }
+
   render() {
     return (
       <AdContext.Consumer>

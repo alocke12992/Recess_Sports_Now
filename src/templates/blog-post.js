@@ -1,9 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {kebabCase} from 'lodash'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Content, {HTMLContent} from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {kebabCase} from 'lodash';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
+import Content, {HTMLContent} from '../components/Content';
+import LikePost from '../components/LikePost';
+import {Title} from 'bloomer';
 
 export const BlogPostTemplate = ({
   content,
@@ -12,32 +14,41 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  likePosts,
 }) => {
   const PostContent = contentComponent || Content
 
   return (
     <section className="section">
       {helmet || ''}
-      <div className="container content">
+      <div className="content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{marginTop: `4rem`}}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
+            <div className="columns">
+              <div className="column is-8">
+                <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+                  {title}
+                </h1>
+                <p>{description}</p>
+                <PostContent content={content} />
+                {tags && tags.length ? (
+                  <div style={{marginTop: `4rem`}}>
+                    <h4>Tags</h4>
+                    <ul className="taglist">
+                      {tags.map(tag => (
+                        <li key={tag + `tag`}>
+                          <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
               </div>
-            ) : null}
+              <div className="column is-3 is-offset-1">
+                <Title>Popular Stories</Title>
+                <LikePost likePosts={likePosts} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -55,12 +66,14 @@ BlogPostTemplate.propTypes = {
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
+  tags: PropTypes.array,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
+  likePosts: PropTypes.array,
 }
 
 const BlogPost = ({data}) => {
-  const {markdownRemark: post} = data
+  const {singlePost: post} = data
+  const {likePosts: likePosts} = data
   if (post.frontmatter.source) {
     return (
       <SamplePost
@@ -73,10 +86,10 @@ const BlogPost = ({data}) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+        helmet={<Helmet title={`${post.frontmatter.title} || Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
-        source={post.frontmatter.source}
+        likePosts={likePosts.edges}
       />
     )
   }
@@ -91,8 +104,8 @@ BlogPost.propTypes = {
 export default BlogPost
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+  query BlogPostByID($id: String!){
+    singlePost: markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
@@ -101,6 +114,30 @@ export const pageQuery = graphql`
         description
         tags
         source
+      }
+    }
+    likePosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } }},
+      limit: 5
+    ) {
+      edges {
+        node {
+          excerpt(pruneLength: 100)
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            featuredImage
+            title
+            templateKey
+            date(formatString: "MMMM DD, YYYY")
+            featured
+            carousel
+            tags
+          }
+        }
       }
     }
   }

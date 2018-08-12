@@ -5,8 +5,9 @@ class Search extends React.Component {
   state = {searchTerm: ''}
 
   handleChange = (e) => {
-    const {name, value} = e.target;
-    this.setState({[name]: value})
+    this.setState({
+      searchTerm: e.target.value
+    })
   }
 
   handleSubmit = (e) => {
@@ -27,7 +28,6 @@ class Search extends React.Component {
             <Input
               isColor='success'
               placeholder='Search...'
-              name="searchTerm"
               value={this.state.searchTerm}
               onChange={this.handleChange}
             />
