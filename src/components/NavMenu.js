@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import {kebabCase} from 'lodash';
-import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarDropdown, NavbarItem} from 'bloomer';
+import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarDropdown, NavbarItem, NavbarBurger} from 'bloomer';
 
 const tags = [
   "ENTERTAINMENT",
@@ -13,11 +13,21 @@ const tags = [
 ]
 
 class NavMenu extends React.Component {
+  state = {isActive: false}
+
+  onClickNav = () => {
+    this.setState((state => {
+      return {isActive: !state.isActive}
+    })
+    )
+
+  }
 
   render() {
     return (
       <Navbar>
-        <NavbarMenu>
+        <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
+        <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
           <NavbarStart>
             <Link to="/">
               HOME
@@ -33,7 +43,7 @@ class NavMenu extends React.Component {
             <Link to="/contact">
               CONTACT
             </Link>
-            <Button onClick={() => this.props.toggleSearch()}>
+            <Button onClick={() => this.props.toggleSearch()} className="searchButton">
               <Icon isSize='small'>
                 <span className="fa fa-search" />
               </Icon>

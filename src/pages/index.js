@@ -69,7 +69,7 @@ export default class IndexPage extends React.Component {
                 <div className="containerGrid">
                   {filteredPosts
                     .map(({node: post}) => (
-                      <div key={post.id} className={post.frontmatter.featured ? "big item" : "item"}>
+                      <div key={post.id} className="item">
                         <Post post={post} />
                       </div>
                     )
