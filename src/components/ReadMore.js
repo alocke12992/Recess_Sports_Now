@@ -4,7 +4,6 @@ import {Tile, Box, Title, Image, Media, MediaContent, Content, MediaLeft} from '
 
 const ReadMore = (props) => {
   const post = props.post.node
-  console.log(post)
   return (
     <React.Fragment>
       <Tile isChild render={

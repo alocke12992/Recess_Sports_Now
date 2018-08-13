@@ -52,7 +52,7 @@ export const BlogPostTemplate = ({
                       {
                         similarPosts.map(post => {
                           return (
-                            <div style={{margin: '0px 10px'}}>
+                            <div key={post.node.id} style={{margin: '0px 10px'}}>
                               <ReadMore post={post} />
                             </div>
                           )
@@ -69,7 +69,7 @@ export const BlogPostTemplate = ({
                     {
                       recentPosts.map(post => {
                         return (
-                          <div style={{margin: '15px 0px'}}>
+                          <div key={post.node.id} style={{margin: '15px 0px'}}>
                             <ReadMore post={post} />
                           </div>
                         )
