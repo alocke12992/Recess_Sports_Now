@@ -48,29 +48,24 @@ class NavMenu extends React.Component {
                 <span className="fa fa-search" />
               </Icon>
             </Button>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+            <a rel="noopener noreferral" target="_blank">
               <Icon isSize='small'>
                 <span className="fa fa-info-circle" />
               </Icon>
             </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+            <a href="https://www.facebook.com/pg/RecessSports/posts/?ref=page_internal" rel="noopener noreferral" target="_blank">
               <Icon isSize='small'>
                 <span className="fa fa-facebook-f" />
               </Icon>
             </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+            <a href="https://twitter.com/Recesssportsnow" rel="noopener noreferral" target="_blank">
               <Icon isSize='small'>
                 <span className="fa fa-twitter" />
               </Icon>
             </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
+            <a href="https://www.instagram.com/recesssportsnow/" rel="noopener noreferral" target="_blank">
               <Icon isSize='small'>
                 <span className="fa fa-instagram" />
-              </Icon>
-            </a>
-            <a href="https://www.linkedin.com/in/andrewmlocke/" rel="noopener noreferral" target="_blank">
-              <Icon isSize='small'>
-                <span className="fa fa-youtube" />
               </Icon>
             </a>
           </NavbarStart>
