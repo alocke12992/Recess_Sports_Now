@@ -10,7 +10,7 @@ const ReadMore = (props) => {
       <Tile isChild render={
         props => (
           <Link to={post.fields.slug}>
-            <div style={{marginBottom: '10px'}}>
+            <div style={{color: '#303030'}}>
               <div className="fill">
                 <img src={post.frontmatter.featuredImage} />
               </div>

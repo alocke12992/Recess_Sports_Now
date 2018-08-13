@@ -46,24 +46,37 @@ export const BlogPostTemplate = ({
                   </div>
                 ) : null}
                 <div>
-                  <Title>YOU MIGHT ALSO LIKE</Title>
+                  <Title>You Might Also Like</Title>
                   <Tile isAncestor>
                     <Tile isSize={12} isParent>
                       {
-                        recentPosts.map(post => {
+                        similarPosts.map(post => {
                           return (
-                            <ReadMore post={post} />
+                            <div style={{margin: '0px 10px'}}>
+                              <ReadMore post={post} />
+                            </div>
                           )
                         })
                       }
                     </Tile>
                   </Tile>
-                  {/* <ReadMore posts={similarPosts} /> */}
                 </div>
               </div>
               <div className="column is-3 is-offset-1">
                 <Title>Popular Stories</Title>
-                {/* <ReadMore posts={recentPosts} /> */}
+                <Tile isAncestor>
+                  <Tile isSize={12} isVertical isParent>
+                    {
+                      recentPosts.map(post => {
+                        return (
+                          <div style={{margin: '15px 0px'}}>
+                            <ReadMore post={post} />
+                          </div>
+                        )
+                      })
+                    }
+                  </Tile>
+                </Tile>
               </div>
             </div>
           </div>
@@ -156,9 +169,8 @@ export const pageQuery = graphql`
       }
     }
     similarPosts: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }},
-      limit: 5
+      limit: 3
     ) {
       edges {
         node {
