@@ -4,8 +4,9 @@ import {kebabCase} from 'lodash';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import Content, {HTMLContent} from '../components/Content';
-import LikePost from '../components/LikePost';
-import {Title} from 'bloomer';
+import ReadMore from '../components/ReadMore';
+// import SimilarPost from '../components/SimilarPost';
+import {Title, Tile} from 'bloomer';
 
 export const BlogPostTemplate = ({
   content,
@@ -14,7 +15,8 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  likePosts,
+  recentPosts,
+  similarPosts,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -43,10 +45,25 @@ export const BlogPostTemplate = ({
                     </ul>
                   </div>
                 ) : null}
+                <div>
+                  <Title>YOU MIGHT ALSO LIKE</Title>
+                  <Tile isAncestor>
+                    <Tile isSize={12} isParent>
+                      {
+                        recentPosts.map(post => {
+                          return (
+                            <ReadMore post={post} />
+                          )
+                        })
+                      }
+                    </Tile>
+                  </Tile>
+                  {/* <ReadMore posts={similarPosts} /> */}
+                </div>
               </div>
               <div className="column is-3 is-offset-1">
                 <Title>Popular Stories</Title>
-                <LikePost likePosts={likePosts} />
+                {/* <ReadMore posts={recentPosts} /> */}
               </div>
             </div>
           </div>
@@ -68,12 +85,14 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   tags: PropTypes.array,
   title: PropTypes.string,
-  likePosts: PropTypes.array,
+  recentPosts: PropTypes.array,
+  similarPosts: PropTypes.array
 }
 
 const BlogPost = ({data}) => {
   const {singlePost: post} = data
-  const {likePosts: likePosts} = data
+  const {recentPosts: recentPosts} = data
+  const {similarPosts: similarPosts} = data
   if (post.frontmatter.source) {
     return (
       <SamplePost
@@ -89,7 +108,8 @@ const BlogPost = ({data}) => {
         helmet={<Helmet title={`${post.frontmatter.title} || Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
-        likePosts={likePosts.edges}
+        recentPosts={recentPosts.edges}
+        similarPosts={similarPosts.edges}
       />
     )
   }
@@ -116,14 +136,13 @@ export const pageQuery = graphql`
         source
       }
     }
-    likePosts: allMarkdownRemark(
+    recentPosts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }},
       limit: 5
     ) {
       edges {
         node {
-          excerpt(pruneLength: 100)
           id
           fields {
             slug
@@ -132,9 +151,25 @@ export const pageQuery = graphql`
             featuredImage
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
-            featured
-            carousel
+          }
+        }
+      }
+    }
+    similarPosts: allMarkdownRemark(
+      sort: { order: DESC, fields: [frontmatter___date] },
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } }},
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            featuredImage
+            title
+            templateKey
             tags
           }
         }
