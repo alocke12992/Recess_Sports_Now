@@ -38,7 +38,7 @@ class TemplateWrapper extends React.Component {
       return (
         <Fragment>
           <Helmet title="Recess Sports Now" />
-          <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}}>
+          <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}} className="mainWrapper">
             <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} showSearch={this.state.showSearch} />
             <AdContext.Provider value={props}>
               <div style={{marginTop: '0px'}}>{children()}</div>
@@ -50,7 +50,7 @@ class TemplateWrapper extends React.Component {
       return (
         <Fragment>
           <Helmet title="Recess Sports Now" />
-          <div>
+          <div className="mainWrapper">
             <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} />
             <AdContext.Provider value={ads}>
               <div style={{marginTop: '0px'}}>{children()}</div>
