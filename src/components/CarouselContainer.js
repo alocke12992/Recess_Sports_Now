@@ -17,10 +17,11 @@ const CarouselContainer = (props) => {
     },
     spaceBetween: 30,
     autoplay: {
-      delay: 1000,
+      delay: 4000,
     },
     loop: true,
   }
+
   return (
     <Swiper {...params}>
       {posts.map(({node: post}) => (
