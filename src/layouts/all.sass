@@ -1,4 +1,5 @@
 @import "~bulma/sass/utilities/initial-variables"
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.2.6/css/swiper.css")
 
 // Config vars
 $kaldi-red: #FD461E
@@ -109,8 +110,29 @@ body
   min-width: 100%
   min-height: 100%
 
+@media screen and (min-width: 769px)  
+  .homeTop
+    display: grid
+    grid-gap: 10px
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 200px 200px
 
+  .homeTopAd
+    grid-column-start: 3
+    grid-row-start: 1
+  
+  .homeTopSubscribe
+    grid-column-start: 3
+    grid-row-start: 2
+  
+@media screen and (max-width: 768px)  
+  .homeTop
+    display: flex
+    flex-direction: column
 
+.carousel
+  grid-column: span 2
+  grid-row: span 2
 
 
 

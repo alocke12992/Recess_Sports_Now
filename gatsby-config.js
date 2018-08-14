@@ -3,7 +3,6 @@ module.exports = {
     title: 'Recess Sports Now',
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
