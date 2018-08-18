@@ -44,7 +44,6 @@ body
 
 .navWrapper
   background: white
-  padding: 0px 0px 20px 0px !important
 
 .navbar-start
   width: 100%
@@ -125,6 +124,18 @@ body
     grid-template-columns: 1fr 1fr 1fr
     grid-auto-rows: auto
     grid-auto-flow: dense
+
+  .fixedNav
+    overflow: hidden
+    background-color: #fff
+    position: fixed
+    top: 0
+    width: 100%
+    z-index: 10
+    padding: 5px 100px 0px 100px
+
+  .navbar-menu
+    align-items: center !important
   
 @media screen and (max-width: 768px)  
   .mainWrapper
@@ -153,6 +164,7 @@ body
 .swiper-button-next
   &:hover
     color: white
+
 
   
 
