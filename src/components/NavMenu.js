@@ -8,8 +8,6 @@ const tags = [
   "BUSINESS",
   "TECH",
   "LIFESTYLE",
-  "PODCAST",
-  "ORIGINALS",
 ]
 
 class NavMenu extends React.Component {
@@ -42,6 +40,9 @@ class NavMenu extends React.Component {
             </NavbarItem>
             <Link to="/contact">
               CONTACT
+            </Link>
+            <Link to="/contact">
+              ORIGINALS
             </Link>
             <Button onClick={() => this.props.toggleSearch()} className="searchButton">
               <Icon isSize='small'>

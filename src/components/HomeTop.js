@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image} from 'bloomer';
+import {Icon} from 'bloomer';
 import CarouselContainer from './CarouselContainer';
 import ContactForm from './ContactForm';
 
@@ -12,7 +12,7 @@ const HomeTop = (props) => (
       <img src={props.ad[0].node.frontmatter.image} style={{height: '100%', width: '100%'}} />
     </div>
     <div className="homeTopSubscribe">
-      <h1 style={{fontFamily: 'Roboto'}}>Subscribe</h1>
+      <h1 style={{fontFamily: 'Roboto'}} className="mytextwithicon">Subscribe</h1>
       <ContactForm />
     </div>
   </div>

@@ -17,7 +17,7 @@ const CarouselContainer = (props) => {
     },
     spaceBetween: 30,
     autoplay: {
-      delay: 4000,
+      delay: 5000,
     },
     loop: true,
   }

@@ -6,6 +6,7 @@ import NavMenu from './NavMenu';
 class NavbarComponent extends React.Component {
 
   render() {
+    console.log(this.props)
     return (
       <div className="columns" style={{marginBottom: '0px'}}>
         <div className="column is-8 is-offset-2 navWrapper">

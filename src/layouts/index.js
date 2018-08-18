@@ -33,37 +33,37 @@ class TemplateWrapper extends React.Component {
     let headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
     let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
     let props = {ads: ads, searchTerm: this.state.searchTerm, showSearch: this.state.showSearch} // Builds props to pass to IndexPage.js via context api
-    if (this.state.isAuthenticated) {
-      if (this.props.location.pathname === "/") {
-        return (
-          <Fragment>
-            <Helmet title="Recess Sports Now" />
-            <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}} className="mainWrapper">
-              <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} showSearch={this.state.showSearch} />
-              <AdContext.Provider value={props}>
-                <div style={{marginTop: '0px'}}>{children()}</div>
-              </AdContext.Provider>
-            </div>
-          </Fragment>
-        )
-      } else {
-        return (
-          <Fragment>
-            <Helmet title="Recess Sports Now" />
-            <div className="mainWrapper">
-              <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} />
-              <AdContext.Provider value={ads}>
-                <div style={{marginTop: '0px'}}>{children()}</div>
-              </AdContext.Provider>
-            </div>
-          </Fragment>
-        )
-      }
+    // if (this.state.isAuthenticated) {
+    if (this.props.location.pathname === "/") {
+      return (
+        <Fragment>
+          <Helmet title="Recess Sports Now" />
+          <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}} className="mainWrapper">
+            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} showSearch={this.state.showSearch} />
+            <AdContext.Provider value={props}>
+              <div style={{marginTop: '0px'}}>{children()}</div>
+            </AdContext.Provider>
+          </div>
+        </Fragment>
+      )
     } else {
       return (
-        <Login password={this.state.password} closeForm={this.toggleForm} />
+        <Fragment>
+          <Helmet title="Recess Sports Now" />
+          <div className="mainWrapper">
+            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} />
+            <AdContext.Provider value={ads}>
+              <div style={{marginTop: '0px'}}>{children()}</div>
+            </AdContext.Provider>
+          </div>
+        </Fragment>
       )
     }
+    // } else {
+    //   return (
+    //     <Login password={this.state.password} closeForm={this.toggleForm} />
+    //   )
+    // }
   }
 }
 
