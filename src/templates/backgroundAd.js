@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const BackgroundAdTemplate = ({title, image, link}) => {
+export const BackgroundAdTemplate = ({title, image, link, alt}) => {
   return (
     <section className="section section--gradient">
       <div className="container">
@@ -12,7 +12,7 @@ export const BackgroundAdTemplate = ({title, image, link}) => {
                 {title}
               </h2>
               <a href={link}>
-                <img src={image} />
+                <img src={image} alt={alt} />
               </a>
             </div>
           </div>
@@ -26,6 +26,7 @@ BackgroundAdTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   link: PropTypes.string,
+  alt: PropTypes.string
 }
 
 const BackgroundAd = ({data}) => {
@@ -36,6 +37,7 @@ const BackgroundAd = ({data}) => {
       title={ad.frontmatter.title}
       image={ad.frontmatter.image}
       link={ad.frontmatter.link}
+      alt={ad.frontmatter.alt}
     />
   )
 }
@@ -52,7 +54,7 @@ export const BackgroundAdQuery = graphql`
       frontmatter {
         title,
         image,
-        link
+        link,
       }
     }
   }

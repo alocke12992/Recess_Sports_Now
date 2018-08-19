@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const HeaderAdTemplate = ({title, image, link}) => {
+export const HeaderAdTemplate = ({title, image, link, alt}) => {
   return (
     <section className="section section--gradient">
       <div className="container">
@@ -12,7 +12,7 @@ export const HeaderAdTemplate = ({title, image, link}) => {
                 {title}
               </h2>
               <a href={link}>
-                <img src={image} />
+                <img src={image} alt={alt} />
               </a>
             </div>
           </div>
@@ -26,6 +26,7 @@ HeaderAdTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   link: PropTypes.string,
+  alt: PropTypes.string
 }
 
 const HeaderAd = ({data}) => {
@@ -36,6 +37,7 @@ const HeaderAd = ({data}) => {
       title={ad.frontmatter.title}
       image={ad.frontmatter.image}
       link={ad.frontmatter.link}
+      alt={ad.frontmatter.alt}
     />
   )
 }
@@ -52,7 +54,7 @@ export const HeaderAdQuery = graphql`
       frontmatter {
         title,
         image,
-        link
+        link,
       }
     }
   }
