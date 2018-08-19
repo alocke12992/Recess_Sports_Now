@@ -46,7 +46,6 @@ body
   background: white
 
 .navbar-start
-  width: 100%
   justify-content: space-between !important
 
 .navbar-start a 
@@ -102,6 +101,11 @@ body
   min-width: 100%
   min-height: 100%
 
+.navBar
+  display: flex
+  justify-content: center
+  align-items: center
+
 @media screen and (min-width: 769px)  
   .homeTop
     display: grid
@@ -133,11 +137,18 @@ body
     width: 100%
     z-index: 10
     padding: 5px 100px 0px 100px
-
-  .navbar-menu
-    align-items: center !important
   
-@media screen and (max-width: 768px)  
+  .navbar-start a
+    padding: 0px 5px
+  
+  .navMenu
+    display: flex
+    justify-content: space-between
+  
+@media screen and (max-width: 768px) 
+  .navMenu 
+    display: none
+
   .mainWrapper
     background-image: none !important
     padding: 20px

@@ -52,7 +52,7 @@ class NavbarComponent extends React.Component {
             </div>
           </div>
           {
-            location < 1 ?
+            location < 0 ?
               <div className="fixedNav">
                 <NavMenu logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} />
               </div>
