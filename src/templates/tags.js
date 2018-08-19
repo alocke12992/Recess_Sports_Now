@@ -4,34 +4,42 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 
 class TagRoute extends React.Component {
+
+  showPosts = () => {
+
+  }
+
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map(post => (
-      <li key={post.node.fields.slug}>
-        <Link to={post.node.fields.slug}>
-          <img src={post.node.frontmatter.image} />
-          <h2 className="is-size-2">{post.node.frontmatter.title}</h2>
-        </Link>
-      </li>
-    ))
     const tag = this.props.pathContext.tag
     const title = this.props.data.site.siteMetadata.title
-    const totalCount = this.props.data.allMarkdownRemark.totalCount
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`
-
+    const posts = this.props.data.allMarkdownRemark.edges
+    const postLinks = posts.map(post => (
+      <Link to={post.node.fields.slug} key={post.node.fields.slug}>
+        <div className="columns">
+          <div className="column is-6" style={{display: 'flex', alignItems: 'center'}}>
+            <figure className="image is-5by3" style={{height: '100%'}}>
+              <img src={post.node.frontmatter.featuredImage} style={{height: '100%', objectFit: 'cover'}} />
+            </figure>
+          </div>
+          <div className="column is-6">
+            <div id="tagName">{tag}</div>
+            <h3 id="postList">{post.node.frontmatter.title}</h3>
+            <p style={{color: '#454545'}}>{post.node.frontmatter.description ? `${post.node.frontmatter.description.substring(0, 100)}...` : null}</p>
+          </div>
+        </div>
+      </Link>
+    ))
     return (
       <section className="section">
         <Helmet title={`${tag} | ${title}`} />
         <div className="container content">
           <div className="columns">
             <div
-              className="column is-10 is-offset-1"
-              style={{ marginBottom: '6rem' }}
+              className="column is-8 is-offset-2"
+              style={{marginBottom: '6rem'}}
             >
-              <h3 className="title is-size-4 is-bold-light">{tagHeader}</h3>
-              <ul className="taglist">{postLinks}</ul>
+              <h2 className="tagTitle">{tag}<span></span></h2>
+              {postLinks}
               <p>
                 <Link to="/tags/">Browse all tags</Link>
               </p>
@@ -65,7 +73,8 @@ export const tagPageQuery = graphql`
           }
           frontmatter {
             title
-            image
+            featuredImage
+            description
           }
         }
       }
