@@ -2,6 +2,8 @@ import React from 'react';
 import RsnLogo from '../img/splashLogo.png';
 import Search from './Search';
 import NavMenu from './NavMenu';
+import FixedNav from './FixedNav'
+import Link from 'gatsby-link';
 
 class NavbarComponent extends React.Component {
   state = {location: null}
@@ -28,33 +30,24 @@ class NavbarComponent extends React.Component {
               </figure>
               <div className="columns" style={{paddingTop: '20px'}}>
                 <div className='column is-one-third is-offset-4'>
-                  <figure className="image is-3by1">
-                    <img src={RsnLogo} />
-                  </figure>
+                  <Link to="/">
+                    <figure className="image is-3by1">
+                      <img src={RsnLogo} />
+                    </figure>
+                  </Link>
                 </div>
               </div>
               <div className="columns" id="navMenu">
-                {
-                  location >= 0 ?
-                    <div className="column is-10 is-offset-1">
-                      <NavMenu toggleSearch={this.props.toggleSearch} location={location} />
-                      {
-                        this.props.showSearch ?
-                          <Search getSearch={this.props.getSearch} toggleSearch={this.props.toggleSearch} />
-                          :
-                          null
-                      }
-                    </div>
-                    :
-                    null
-                }
+                <div className="column is-12">
+                  <NavMenu toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} toggleSearch={this.props.toggleSearch} />
+                </div>
               </div>
             </div>
           </div>
           {
             location < 0 ?
               <div className="fixedNav">
-                <NavMenu logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} />
+                <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} />
               </div>
               :
               null

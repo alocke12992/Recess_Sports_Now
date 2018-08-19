@@ -28,28 +28,8 @@ body
     margin-bottom: 1.5rem
     margin-top: 0
 
-// Helper Classes
-.full-width-image-container
-  width: 100vw
-  height: 400px
-  position: relative
-  left: 50%
-  right: 50%
-  margin: 5em -50vw
-  background-size: cover
-  background-position: bottom
-  display: flex
-  justify-content: center
-  align-items: center
-
 .navWrapper
   background: white
-
-.navbar-start
-  justify-content: space-between !important
-
-.navbar-start a 
-  color: gray !important
 
 .searchButton
   border: none !important
@@ -101,10 +81,26 @@ body
   min-width: 100%
   min-height: 100%
 
-.navBar
+.menuWrapper
   display: flex
   justify-content: center
   align-items: center
+  padding: 0px 20px
+
+#searchBar
+  display: none
+  z-index: 1000
+
+.searchForm
+  position: absolute
+  transform: translateX(-100%)
+  width: 50%
+  bottom: 15px
+  margin-right: 50px
+
+#searchIcon
+  z-index: 1050
+
 
 @media screen and (min-width: 769px)  
   .homeTop
@@ -138,12 +134,15 @@ body
     z-index: 10
     padding: 5px 100px 0px 100px
   
-  .navbar-start a
-    padding: 0px 5px
-  
   .navMenu
     display: flex
     justify-content: space-between
+    width: 100%
+  
+  .navMenu a
+    color: gray
+    font-size: 100%
+  
   
 @media screen and (max-width: 768px) 
   .navMenu 

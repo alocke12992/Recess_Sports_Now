@@ -16,31 +16,20 @@ class Search extends React.Component {
     this.props.getSearch(searchTerm)
   }
 
-  closeSearch = () => {
-    this.props.toggleSearch()
-  }
-
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <Field>
+      <form onSubmit={this.handleSubmit} className="searchForm">
+        <Field style={{marginRight: '10px'}}>
           <Control hasIcons>
             <Input
-              isColor='success'
+              style={{height: '10%'}}
               placeholder='Search...'
               value={this.state.searchTerm}
               onChange={this.handleChange}
+              autofocus
             />
-            <Icon isSize='small' isAlign='left'>
-              <span className="fa fa-search" />
-            </Icon>
           </Control>
         </Field>
-        <Button onClick={this.closeSearch}>
-          <Icon isSize='small' isAlign='right'>
-            <span className="fa fa-times" />
-          </Icon>
-        </Button>
       </form>
     )
   }

@@ -25,7 +25,7 @@ const CarouselContainer = (props) => {
   return (
     <Swiper {...params}>
       {posts.map(({node: post}) => (
-        <div className="carouselSlides">
+        <div key={post.id} className="carouselSlides">
           <CarouselSlide post={post} />
         </div>
       ))}

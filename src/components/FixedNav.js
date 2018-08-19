@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import {kebabCase} from 'lodash';
-import {Icon} from 'bloomer';
+import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarBrand, NavbarItem, NavbarBurger} from 'bloomer';
+import Search from './Search';
 
 const tags = [
   "ENTERTAINMENT",
@@ -12,8 +13,8 @@ const tags = [
   "ORIGINALS"
 ]
 
-class NavMenu extends React.Component {
-  state = {isActive: false}
+class FixedNav extends React.Component {
+  state = {isActive: false, searchHover: false}
 
   onClickNav = () => {
     this.setState((state => {
@@ -22,18 +23,27 @@ class NavMenu extends React.Component {
     )
   }
 
+  toggleSearch = () => {
+    const searchIcon = document.getElementById("searchBar")
+    if (searchIcon.style["display"] === "block") {
+      searchIcon.style["display"] = "none"
+    } else {
+      searchIcon.style["display"] = "block"
+    }
+  }
+
   socialMedia = () => {
-    let search = document.getElementById("searchBar")
-    let searchIcon = document.getElementById("searchIcon")
 
     return (
       <React.Fragment>
-        <div id="searchBar" >
-          <Search />
+        <div id="searchIcon" onMouseEnter={this.toggleSearch} onMouseLeave={this.toggleSearch}>
+          <div id="searchBar" >
+            <Search />
+          </div>
+          <Icon isSize='small'>
+            <span className="fa fa-search" />
+          </Icon>
         </div>
-        <Icon isSize='small' id="searchIcon">
-          <span className="fa fa-search" />
-        </Icon>
         <a rel="noopener noreferral" target="_blank" className="navItem">
           <Icon isSize='small'>
             <span className="fa fa-info-circle" />
@@ -75,13 +85,17 @@ class NavMenu extends React.Component {
 
   render() {
     return (
-      <div className="navBar">
+      <div className="menuWrapper">
+        <Link to="/">
+          <img src={this.props.logo} style={{width: 'auto', height: '50px', padding: '10px 15px'}} className="navBarLogo" />
+        </Link>
         <div className="navMenu">
           {this.links()}
+          {this.socialMedia()}
         </div>
       </div>
     )
   }
 }
 
-export default NavMenu;
+export default FixedNav;
