@@ -93,7 +93,7 @@ export default class IndexPage extends React.Component {
       <AdContext.Consumer>
         {props => (
           <Fragment>
-            {props.showSearch ?
+            {props.searchTerm !== "" ?
               this.showSearch(props)
               :
               this.showAllPosts(props)

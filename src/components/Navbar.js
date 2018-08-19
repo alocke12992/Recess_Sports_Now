@@ -30,7 +30,7 @@ class NavbarComponent extends React.Component {
               </figure>
               <div className="columns" style={{paddingTop: '20px'}}>
                 <div className='column is-one-third is-offset-4'>
-                  <Link to="/">
+                  <Link to="/" onClick={this.props.clearSearch}>
                     <figure className="image is-3by1">
                       <img src={RsnLogo} />
                     </figure>
@@ -39,7 +39,7 @@ class NavbarComponent extends React.Component {
               </div>
               <div className="columns" id="navMenu">
                 <div className="column is-12">
-                  <NavMenu toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} toggleSearch={this.props.toggleSearch} />
+                  <NavMenu />
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@ class NavbarComponent extends React.Component {
           {
             location < 0 ?
               <div className="fixedNav">
-                <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} />
+                <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} />
               </div>
               :
               null

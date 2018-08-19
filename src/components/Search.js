@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, Label, Field, Control, Input, Button} from 'bloomer';
+import {Field, Control, Input} from 'bloomer';
 
 class Search extends React.Component {
   state = {searchTerm: ''}
@@ -20,13 +20,12 @@ class Search extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="searchForm">
         <Field style={{marginRight: '10px'}}>
-          <Control hasIcons>
+          <Control>
             <Input
               style={{height: '10%'}}
               placeholder='Search...'
               value={this.state.searchTerm}
               onChange={this.handleChange}
-              autofocus
             />
           </Control>
         </Field>

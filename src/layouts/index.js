@@ -17,14 +17,13 @@ class TemplateWrapper extends React.Component {
     })
   }
 
-  toggleSearch = () => {
-    this.setState((state) => {
-      return {showSearch: !state.showSearch, searchTerm: ''}
-    })
+  getSearch = (term) => {
+    window.scrollTo(0, 0)
+    this.setState({searchTerm: term})
   }
 
-  getSearch = (term) => {
-    this.setState({searchTerm: term})
+  clearSearch = () => {
+    this.setState({searchTerm: ''})
   }
 
   render() {
@@ -39,7 +38,7 @@ class TemplateWrapper extends React.Component {
         <Fragment>
           <Helmet title="Recess Sports Now" />
           <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}} className="mainWrapper">
-            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} showSearch={this.state.showSearch} />
+            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} />
             <AdContext.Provider value={props}>
               <div style={{marginTop: '0px'}}>{children()}</div>
             </AdContext.Provider>
@@ -51,7 +50,7 @@ class TemplateWrapper extends React.Component {
         <Fragment>
           <Helmet title="Recess Sports Now" />
           <div className="mainWrapper">
-            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} toggleSearch={this.toggleSearch} />
+            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} />
             <AdContext.Provider value={ads}>
               <div style={{marginTop: '0px'}}>{children()}</div>
             </AdContext.Provider>

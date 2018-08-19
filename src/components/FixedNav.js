@@ -38,7 +38,7 @@ class FixedNav extends React.Component {
       <React.Fragment>
         <div id="searchIcon" onMouseEnter={this.toggleSearch} onMouseLeave={this.toggleSearch}>
           <div id="searchBar" >
-            <Search />
+            <Search getSearch={this.props.getSearch} />
           </div>
           <Icon isSize='small'>
             <span className="fa fa-search" />
