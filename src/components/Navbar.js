@@ -25,7 +25,7 @@ class NavbarComponent extends React.Component {
         <div className="column is-12">
           <div className="columns">
             <div className="column is-8 is-offset-2 navWrapper">
-              <figure className="image is-3by1">
+              <figure className="image is-3by1" id="headerAd">
                 <img src={this.props.headerAd} style={{height: '250px'}} id="logo" />
               </figure>
               <div className="columns" style={{paddingTop: '20px'}}>
