@@ -19,7 +19,7 @@ class Search extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="searchForm">
-        <Field style={{marginRight: '10px'}}>
+        <Field>
           <Control>
             <Input
               style={{height: '10%'}}

@@ -136,7 +136,27 @@ body
   font-weight: bold
   color: #454545
 
+.carousel
+  grid-column: span 2
+  grid-row: span 2
+
+.swiper-container
+  height: 100%
+  padding-bottom: 40px
+
+.swiper-wrapper
+  display: flex
+  align-items: center
+
 @media screen and (min-width: 769px)  
+
+  .searchForm
+    position: absolute
+    transform: translateX(-100%)
+    width: 50%
+    bottom: 15px
+    margin-right: 50px
+
   .homeTop
     display: grid
     grid-gap: 10px
@@ -177,23 +197,18 @@ body
     color: gray
     font-size: 100%
   
-.carousel
-  grid-column: span 2
-  grid-row: span 2
+  .mobileNav
+    display: none
+  
+  #searchBar
+    display: none
+    z-index: 1000
 
-.swiper-container
-  height: 100%
-  padding-bottom: 40px
+  #searchIcon
+    z-index: 1050
 
-.swiper-wrapper
-  display: flex
-  align-items: center
-
-.swiper-button-prev
-
-.swiper-button-next
-  &:hover
-    color: white
+  #searchForm
+    margin-right: 10px
 
 @media screen and (max-width: 768px) 
   .navMenu 
@@ -210,6 +225,26 @@ body
   
   #headerAd
     display: none
+  
+  #logoLaptop
+    display: none
+  
+  #logoMobile
+    position: fixed
+    z-index: 1000
+    background: #ffffff
+    top: 0
+    display: flex
+    align-items: center
+    
+  .searchForm
+    display: block
+    z-index: 2000
+    position: fixed
+    bottom: unset
+    margin-right: 0px
+    padding-top: 20px
+    width: 92%
 
   
 
