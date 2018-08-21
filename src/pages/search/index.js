@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import {withPrefix} from 'gatsby-link'
 import Post from '../../components/Post';
 import {AdContext} from '../../components/AdContext';
+import SearchResults from '../../components/SearchResults';
 
 class SearchPage extends React.Component {
 
@@ -38,28 +39,25 @@ class SearchPage extends React.Component {
       })
     }
     return (
-      <div className='columns'>
-        <div className='column is-8 is-offset-2 mainContent'>
-          {
-            passedProps.searchTerm !== "" ?
-              <div>
-
-                <h2>{filteredPosts.length} Posts tagged with "{passedProps.searchTerm}"</h2>
-                <div className="containerGrid">
-                  {filteredPosts
-                    .map(({node: post}) => (
-                      <div key={post.id} className="item">
-                        <Post post={post} />
-                      </div>
-                    )
-                    )}
-                </div>
-              </div>
-              :
-              null
-          }
-        </div>
-      </div>
+      <section className="section">
+        <div className="container content">
+          <div className="columns">
+            <div
+              className="column is-8 is-offset-2"
+              style={{marginBottom: '6rem'}}
+            >
+              {
+                passedProps.searchTerm !== "" ?
+                  <div>
+                    <h2 className="tagTitle">{filteredPosts.length} Posts tagged with "{passedProps.searchTerm}"</h2>
+                    <SearchResults posts={filteredPosts} />
+                  </div>
+                  :
+                  null
+              }
+            </div>
+          </div>
+        </div></section>
     )
   }
 
@@ -104,6 +102,7 @@ export const searchPageQuery = graphql`
             templateKey
             date(formatString: "MMMM DD, YYYY")
             tags
+            description
           }
         }
       }

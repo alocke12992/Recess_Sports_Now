@@ -1,7 +1,8 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import React from 'react';
+import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
+import SearchResults from '../components/SearchResults';
 
 class TagRoute extends React.Component {
 
@@ -13,22 +14,6 @@ class TagRoute extends React.Component {
     const tag = this.props.pathContext.tag
     const title = this.props.data.site.siteMetadata.title
     const posts = this.props.data.allMarkdownRemark.edges
-    const postLinks = posts.map(post => (
-      <Link to={post.node.fields.slug} key={post.node.fields.slug}>
-        <div className="columns">
-          <div className="column is-6" style={{display: 'flex', alignItems: 'center'}}>
-            <figure className="image is-5by3" style={{height: '100%'}}>
-              <img src={post.node.frontmatter.featuredImage} style={{height: '100%', objectFit: 'cover'}} />
-            </figure>
-          </div>
-          <div className="column is-6">
-            <div id="tagName">{tag}</div>
-            <h3 id="postList">{post.node.frontmatter.title}</h3>
-            <p style={{color: '#454545'}}>{post.node.frontmatter.description ? `${post.node.frontmatter.description.substring(0, 100)}...` : null}</p>
-          </div>
-        </div>
-      </Link>
-    ))
     return (
       <section className="section">
         <Helmet title={`${tag} | ${title}`} />
@@ -39,7 +24,7 @@ class TagRoute extends React.Component {
               style={{marginBottom: '6rem'}}
             >
               <h2 className="tagTitle">{tag}<span></span></h2>
-              {postLinks}
+              <SearchResults posts={posts} title={title} tag={tag} />
               <p>
                 <Link to="/tags/">Browse all tags</Link>
               </p>
