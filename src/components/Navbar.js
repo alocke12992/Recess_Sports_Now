@@ -27,69 +27,77 @@ class NavbarComponent extends React.Component {
 
   render() {
     const {location} = this.state
-    return (
-      <div className="columns" style={{marginBottom: '0px'}} id="nav">
-        <div className="column is-12">
-          <div className="columns">
-            <div className="column is-8 is-offset-2 navWrapper">
-              <figure className="image is-3by1" id="headerAd">
-                <img src={this.props.headerAd} style={{height: '250px'}} id="logo" />
-              </figure>
-              <div className="columns" style={{paddingTop: '20px'}}>
-                <div className='column is-one-third is-offset-4' id="logoLaptop">
-                  <Link to="/" onClick={this.props.clearSearch}>
-                    <figure className="image is-3by1">
-                      <img src={RsnLogo} />
-                    </figure>
-                  </Link>
-                </div>
-                <div className='column is-12 mobileNav' id="logoMobile">
-                  <div>
-                    <Icon isSize='small' id="">
-                      <span className="fas fa-bars" />
-                    </Icon>
-                  </div>
-                  <div>
+    if (window.location.pathname === "/") {
+      return (
+        <div className="columns" style={{marginBottom: '0px'}} id="nav">
+          <div className="column is-12">
+            <div className="columns">
+              <div className="column is-8 is-offset-2 navWrapper">
+                <figure className="image is-3by1" id="headerAd">
+                  <img src={this.props.headerAd} style={{height: '250px'}} id="logo" />
+                </figure>
+                <div className="columns" style={{paddingTop: '20px'}}>
+                  <div className='column is-one-third is-offset-4' id="logoLaptop">
                     <Link to="/" onClick={this.props.clearSearch}>
-                      <figure className="image is-3by1" style={{display: 'flex', justifyContent: 'center'}}>
-                        <img src={RsnLogo} style={{height: '20%', width: '20%'}} />
+                      <figure className="image is-3by1">
+                        <img src={RsnLogo} />
                       </figure>
                     </Link>
                   </div>
-                  <div onClick={() => this.showSearch()}>
-                    <Icon isSize='small' id="searchIcon">
-                      <span className="fa fa-search" />
-                    </Icon>
-                  </div>
-                  {
+                  <div className='column is-12 mobileNav' id="logoMobile">
+                    <div>
+                      <Icon isSize='small' id="">
+                        <span className="fas fa-bars" />
+                      </Icon>
+                    </div>
+                    <div>
+                      <Link to="/" onClick={this.props.clearSearch}>
+                        <figure className="image is-3by1" style={{display: 'flex', justifyContent: 'center'}}>
+                          <img src={RsnLogo} style={{height: '20%', width: '20%'}} />
+                        </figure>
+                      </Link>
+                    </div>
+                    <div onClick={() => this.showSearch()}>
+                      <Icon isSize='small' id="searchIcon">
+                        <span className="fa fa-search" />
+                      </Icon>
+                    </div>
+                    {
 
-                    this.state.showSearch ?
-                      <div>
-                        <Search getSearch={this.props.getSearch} />
-                      </div>
-                      :
-                      null
-                  }
+                      this.state.showSearch ?
+                        <div>
+                          <Search getSearch={this.props.getSearch} />
+                        </div>
+                        :
+                        null
+                    }
+                  </div>
                 </div>
-              </div>
-              <div className="columns" id="navMenu">
-                <div className="column is-12">
-                  <NavMenu />
+                <div className="columns" id="navMenu">
+                  <div className="column is-12">
+                    <NavMenu />
+                  </div>
                 </div>
               </div>
             </div>
+            {
+              location < 0 ?
+                <div className="fixedNav">
+                  <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} />
+                </div>
+                :
+                null
+            }
           </div>
-          {
-            location < 0 ?
-              <div className="fixedNav">
-                <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} />
-              </div>
-              :
-              null
-          }
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="fixedNav" id="navMenu" style={{marginBottom: '25px'}}>
+          <FixedNav logo={RsnLogo} toggleSearch={this.props.toggleSearch} location={location} getSearch={this.props.getSearch} />
+        </div>
+      )
+    }
   }
 }
 

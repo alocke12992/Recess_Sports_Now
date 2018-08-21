@@ -53,7 +53,7 @@ class TemplateWrapper extends React.Component {
           <div className="mainWrapper">
             <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} />
             <AdContext.Provider value={props}>
-              <div style={{marginTop: '0px'}}>{children()}</div>
+              <div style={{marginTop: '75px'}}>{children()}</div>
             </AdContext.Provider>
           </div>
         </Fragment>
