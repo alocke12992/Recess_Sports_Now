@@ -1,32 +1,11 @@
-import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
-import {AdContext} from '../components/AdContext';
-import HomeTop from '../components/HomeTop';
-import Post from '../components/Post';
+import React from 'react'
+import {kebabCase} from 'lodash'
+import Helmet from 'react-helmet'
+import {withPrefix} from 'gatsby-link'
+import Post from '../../components/Post';
+import {AdContext} from '../../components/AdContext';
 
-export default class IndexPage extends React.Component {
-
-  showAllPosts(passedProps) {
-    const {data} = this.props
-    const {edges: posts} = data.allMarkdownRemark
-    const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
-    return (
-      <div className='columns'>
-        <div className='column is-8 is-offset-2 mainContent'>
-          <HomeTop posts={carouselImages} ad={passedProps.ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-          <div className="containerGrid">
-            {posts
-              .map(({node: post}) => (
-                <div key={post.id} className={post.frontmatter.featured ? "big" : ""}>
-                  <Post post={post} />
-                </div>
-              )
-              )}
-          </div>
-        </div>
-      </div>
-    )
-  }
+class SearchPage extends React.Component {
 
   filterPosts(posts, searchTerm) {
     let filteredPosts = []
@@ -84,35 +63,30 @@ export default class IndexPage extends React.Component {
     )
   }
 
-  likePosts = () => {
-
-  }
-
   render() {
     return (
       <AdContext.Consumer>
         {props => (
-          <Fragment>
+          <React.Fragment>
             {
-              this.showAllPosts(props)
+              this.showSearch(props)
             }
-          </Fragment>
+          </React.Fragment>
         )}
       </AdContext.Consumer>
     )
   }
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
+export default SearchPage
 
-export const pageQuery = graphql`
-  query IndexQuery {
+export const searchPageQuery = graphql`
+  query SearchQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
@@ -129,8 +103,6 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "MMMM DD, YYYY")
-            featured
-            carousel
             tags
           }
         }

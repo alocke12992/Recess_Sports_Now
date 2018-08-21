@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import {AdContext} from '../components/AdContext';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
+import {navigateTo} from 'gatsby-link';
 import './all.sass';
 import 'font-awesome/css/font-awesome.css'
 
@@ -18,8 +19,8 @@ class TemplateWrapper extends React.Component {
   }
 
   getSearch = (term) => {
-    window.scrollTo(0, 0)
     this.setState({searchTerm: term})
+    navigateTo(`/search/${term}`)
   }
 
   clearSearch = () => {
@@ -51,7 +52,7 @@ class TemplateWrapper extends React.Component {
           <Helmet title="Recess Sports Now" />
           <div className="mainWrapper">
             <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} />
-            <AdContext.Provider value={ads}>
+            <AdContext.Provider value={props}>
               <div style={{marginTop: '0px'}}>{children()}</div>
             </AdContext.Provider>
           </div>
