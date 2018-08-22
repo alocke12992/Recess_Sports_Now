@@ -42,6 +42,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-facebook-sdk`,
+      options: {
+        appId: '2096664960651971',
+        version: 'v3.1'
+      },
+    },
+    {
       resolve: `gatsby-plugin-create-client-paths`,
       options: {prefixes: [`/search/*`]},
     },

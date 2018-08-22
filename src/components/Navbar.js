@@ -25,6 +25,14 @@ class NavbarComponent extends React.Component {
     })
   }
 
+  shareToFB() {
+    FB.ui({
+      method: 'share',
+      href: window.location.pathname
+    }, function (response) {});
+  }
+
+
   render() {
     const {location} = this.state
     if (window.location.pathname === "/") {
@@ -44,6 +52,7 @@ class NavbarComponent extends React.Component {
                       </figure>
                     </Link>
                   </div>
+                  <button onClick={this.shareToFB}>FB</button>
                   <div className='column is-12 mobileNav' id="logoMobile">
                     <div id="mobileMenu">
                       <div>

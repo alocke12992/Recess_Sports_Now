@@ -2123,7 +2123,7 @@ common-tags@0.1.1:
   dependencies:
     babel-runtime "^6.6.1"
 
-common-tags@^1.4.0:
+common-tags@^1.4.0, common-tags@^1.6.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/common-tags/-/common-tags-1.8.0.tgz#8e3153e542d4a39e9b10554434afaaf98956a937"
 
@@ -3827,6 +3827,12 @@ gatsby-plugin-create-client-paths@^1.0.8:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-create-client-paths/-/gatsby-plugin-create-client-paths-1.0.8.tgz#d8628194675dec24da19ba3d3666b01e17b8c98a"
   dependencies:
     babel-runtime "^6.26.0"
+
+gatsby-plugin-facebook-sdk@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-facebook-sdk/-/gatsby-plugin-facebook-sdk-1.0.6.tgz#dbfe122cc7739a6db80ccfeb4a624eaf8dcd80a8"
+  dependencies:
+    common-tags "^1.6.0"
 
 gatsby-plugin-google-fonts@^0.0.4:
   version "0.0.4"
