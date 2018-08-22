@@ -35,7 +35,7 @@ class NavbarComponent extends React.Component {
 
   render() {
     const {location} = this.state
-    if (window.location.pathname === "/") {
+    if (this.props.location === "/") {
       return (
         <div className="columns" style={{marginBottom: '0px'}} id="nav">
           <div className="column is-12">
