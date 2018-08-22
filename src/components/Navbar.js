@@ -45,27 +45,29 @@ class NavbarComponent extends React.Component {
                     </Link>
                   </div>
                   <div className='column is-12 mobileNav' id="logoMobile">
-                    <div>
-                      <Icon isSize='small' id="">
-                        <span className="fas fa-bars" />
-                      </Icon>
-                    </div>
-                    <div>
-                      <Link to="/" onClick={this.props.clearSearch}>
-                        <figure className="image is-3by1" style={{display: 'flex', justifyContent: 'center'}}>
-                          <img src={RsnLogo} style={{height: '20%', width: '20%'}} />
-                        </figure>
-                      </Link>
-                    </div>
-                    <div onClick={() => this.showSearch()}>
-                      <Icon isSize='small' id="searchIcon">
-                        <span className="fa fa-search" />
-                      </Icon>
+                    <div id="mobileMenu">
+                      <div>
+                        <Icon isSize='small' id="">
+                          <span className="fas fa-bars" />
+                        </Icon>
+                      </div>
+                      <div>
+                        <Link to="/" onClick={this.props.clearSearch}>
+                          <figure className="image is-3by1" style={{display: 'flex', justifyContent: 'center'}}>
+                            <img src={RsnLogo} style={{height: '20%', width: '20%'}} />
+                          </figure>
+                        </Link>
+                      </div>
+                      <div onClick={() => this.showSearch()}>
+                        <Icon isSize='small' id="searchIcon">
+                          <span className="fa fa-search" />
+                        </Icon>
+                      </div>
                     </div>
                     {
 
                       this.state.showSearch ?
-                        <div>
+                        <div id="mobileSearch">
                           <Search getSearch={this.props.getSearch} />
                         </div>
                         :
