@@ -132,6 +132,7 @@ export const pageQuery = graphql`
             featured
             carousel
             tags
+            description
           }
         }
       }

@@ -16,9 +16,9 @@ const CarouselContainer = (props) => {
       prevEl: '.swiper-button-prev'
     },
     spaceBetween: 30,
-    autoplay: {
-      delay: 5000,
-    },
+    // autoplay: {
+    //   delay: 5000,
+    // },
     loop: true,
   }
 
