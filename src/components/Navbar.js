@@ -52,7 +52,6 @@ class NavbarComponent extends React.Component {
                       </figure>
                     </Link>
                   </div>
-                  <button onClick={this.shareToFB}>FB</button>
                   <div className='column is-12 mobileNav' id="logoMobile">
                     <div id="mobileMenu">
                       <div>

@@ -20,7 +20,7 @@ class ContactForm extends React.Component {
       .then(data => {
         // I recommend setting data to React state
         // but you can do whatever you want
-        console.log(data)
+        this.setState({firstName: '', lastName: '', email: ''})
       })
       .catch(() => {
         // unnecessary because Mailchimp only ever
