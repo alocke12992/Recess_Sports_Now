@@ -7,8 +7,11 @@ import Content, {HTMLContent} from '../components/Content';
 import ReadMore from '../components/ReadMore';
 // import SimilarPost from '../components/SimilarPost';
 import {Title, Tile} from 'bloomer';
+import PostShare from '../components/PostShare';
 
 export const BlogPostTemplate = ({
+  slug,
+  exerpt,
   content,
   contentComponent,
   description,
@@ -28,6 +31,7 @@ export const BlogPostTemplate = ({
           <div className="column is-10 is-offset-1">
             <div className="columns">
               <div className="column is-8">
+                <PostShare slug={slug} title={title} exerpt={exerpt} />
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                   {title}
                 </h1>
@@ -45,6 +49,7 @@ export const BlogPostTemplate = ({
                     </ul>
                   </div>
                 ) : null}
+                <div className="fb-comments" data-href="http://localhost:8000/blog/2022-07-05-this-is-a-test-blog/" data-numposts="5"></div>
                 <div>
                   <Title>You Might Also Like</Title>
                   <Tile isAncestor>
@@ -93,6 +98,8 @@ export const SamplePost = ({source}) => {
 }
 
 BlogPostTemplate.propTypes = {
+  slug: PropTypes.string.isRequired,
+  excerpt: PropTypes.string,
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -115,6 +122,8 @@ const BlogPost = ({data}) => {
   } else {
     return (
       <BlogPostTemplate
+        slug={post.fields.slug}
+        exerpt={post.exerpt}
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -140,6 +149,10 @@ export const pageQuery = graphql`
   query BlogPostByID($id: String!){
     singlePost: markdownRemark(id: { eq: $id }) {
       id
+      excerpt(pruneLength: 100)
+      fields {
+        slug
+      }
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

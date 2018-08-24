@@ -25,14 +25,6 @@ class NavbarComponent extends React.Component {
     })
   }
 
-  shareToFB() {
-    FB.ui({
-      method: 'share',
-      href: window.location.pathname
-    }, function (response) {});
-  }
-
-
   render() {
     const {location} = this.state
     if (this.props.location === "/") {

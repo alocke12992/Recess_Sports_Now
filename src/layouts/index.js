@@ -27,19 +27,28 @@ class TemplateWrapper extends React.Component {
     this.setState({searchTerm: ''})
   }
 
+  share = () => {
+    window.FB.ui({
+      method: 'share',
+      href: 'https://developers.facebook.com/docs/'
+    }, function (response) {});
+  }
+
   render() {
     const {children, data} = this.props
     const {edges: ads} = data.allMarkdownRemark
     let headerAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'headerAd')
     let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
     let props = {ads: ads, searchTerm: this.state.searchTerm, showSearch: this.state.showSearch}
+
     // if (this.state.isAuthenticated) {
     if (this.props.location.pathname === "/") {
       return (
         <Fragment>
           <Helmet title="Recess Sports Now" />
           <div style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}} className="mainWrapper">
-            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} location={this.props.location.pathname}/>
+            {this.share}
+            <Navbar headerAd={headerAd[0].node.frontmatter.image} getSearch={this.getSearch} clearSearch={this.clearSearch} location={this.props.location.pathname} />
             <AdContext.Provider value={props}>
               <div style={{marginTop: '0px'}}>{children()}</div>
             </AdContext.Provider>

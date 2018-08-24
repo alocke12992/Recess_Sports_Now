@@ -8,7 +8,10 @@ export default class IndexPage extends React.Component {
 
   showAllPosts(passedProps) {
     const {data} = this.props
-    const {edges: posts} = data.allMarkdownRemark
+    // const facebook = (((data || {}).site || {}).siteMetadata || {}).facebook;
+    console.log(data.siteData)
+    console.log(process.env.GATSBY_FB_APP_ID)
+    const {edges: posts} = data.posts
     const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (
       <div className='columns'>
@@ -17,7 +20,7 @@ export default class IndexPage extends React.Component {
           <div className="containerGrid">
             {posts
               .map(({node: post}) => (
-                <div key={post.id} className={post.frontmatter.featured ? "big" : ""}>
+                <div key={post.id} className={post.frontmatter.featured ? "big" : ""} style={{height: '100%'}}>
                   <Post post={post} />
                 </div>
               )
@@ -26,66 +29,6 @@ export default class IndexPage extends React.Component {
         </div>
       </div>
     )
-  }
-
-  filterPosts(posts, searchTerm) {
-    let filteredPosts = []
-    posts.forEach(post => {
-      let tags = post.node.frontmatter.tags
-      tags.forEach(tag => {
-        tag = tag.toLowerCase()
-        if (tag.includes(searchTerm)) {
-          filteredPosts.push(post)
-        }
-      })
-    })
-    return filteredPosts
-  }
-
-  showSearch(passedProps) {
-    const {data} = this.props
-    const {edges: posts} = data.allMarkdownRemark
-    let searchTerm = passedProps.searchTerm.toLowerCase()
-    let filteredPosts = []
-    if (searchTerm !== "") {
-      posts.forEach(post => {
-        let tags = post.node.frontmatter.tags
-        tags.forEach(tag => {
-          tag = tag.toLowerCase()
-          if (tag.includes(searchTerm)) {
-            filteredPosts.push(post)
-          }
-        })
-      })
-    }
-    return (
-      <div className='columns'>
-        <div className='column is-8 is-offset-2 mainContent'>
-          {
-            passedProps.searchTerm !== "" ?
-              <div>
-
-                <h2>{filteredPosts.length} Posts tagged with "{passedProps.searchTerm}"</h2>
-                <div className="containerGrid">
-                  {filteredPosts
-                    .map(({node: post}) => (
-                      <div key={post.id} className="item">
-                        <Post post={post} />
-                      </div>
-                    )
-                    )}
-                </div>
-              </div>
-              :
-              null
-          }
-        </div>
-      </div>
-    )
-  }
-
-  likePosts = () => {
-
   }
 
   render() {
@@ -113,7 +56,7 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
+    posts: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
     ) {
@@ -134,6 +77,13 @@ export const pageQuery = graphql`
             tags
             description
           }
+        }
+      }
+    }
+  	siteData: site {
+      siteMetadata {
+        facebook{
+          appId
         }
       }
     }

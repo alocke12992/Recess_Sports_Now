@@ -8,7 +8,7 @@ const tags = [
   "BUSINESS",
   "TECH",
   "LIFESTYLE",
-  "PODCASTS",
+  "PODCAST",
   "ORIGINALS"
 ]
 
@@ -23,8 +23,6 @@ class NavMenu extends React.Component {
   }
 
   socialMedia = () => {
-    let search = document.getElementById("searchBar")
-    let searchIcon = document.getElementById("searchIcon")
 
     return (
       <React.Fragment>

@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: 'Recess Sports Now',
+    facebook: {
+      appId: "2096664960651971"
+    }
   },
   plugins: [
     'gatsby-plugin-react-helmet',
