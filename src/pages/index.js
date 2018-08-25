@@ -8,9 +8,6 @@ export default class IndexPage extends React.Component {
 
   showAllPosts(passedProps) {
     const {data} = this.props
-    // const facebook = (((data || {}).site || {}).siteMetadata || {}).facebook;
-    console.log(data.siteData)
-    console.log(process.env.GATSBY_FB_APP_ID)
     const {edges: posts} = data.posts
     const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -27,7 +26,6 @@ const PostShare = props => {
   return (
     <React.Fragment>
       <div className="share">
-        <span className="label">SHARE</span>
         <div className="links">
           <TwitterShareButton
             url={url}
@@ -78,11 +76,6 @@ const PostShare = props => {
       </div>
     </React.Fragment>
   );
-};
-
-PostShare.propTypes = {
-  post: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
 };
 
 export default PostShare;

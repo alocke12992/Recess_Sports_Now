@@ -5,11 +5,12 @@ import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import Content, {HTMLContent} from '../components/Content';
 import ReadMore from '../components/ReadMore';
-// import SimilarPost from '../components/SimilarPost';
 import {Title, Tile} from 'bloomer';
 import PostShare from '../components/PostShare';
+import Comments from '../components/Comments';
 
 export const BlogPostTemplate = ({
+  facebook,
   slug,
   exerpt,
   content,
@@ -22,7 +23,6 @@ export const BlogPostTemplate = ({
   similarPosts,
 }) => {
   const PostContent = contentComponent || Content
-
   return (
     <section className="section">
       {helmet || ''}
@@ -31,12 +31,19 @@ export const BlogPostTemplate = ({
           <div className="column is-10 is-offset-1">
             <div className="columns">
               <div className="column is-8">
-                <PostShare slug={slug} title={title} exerpt={exerpt} />
+                <div className="inline-share">
+                  <div className="post-top share-this">Share This</div>
+                  <PostShare slug={slug} title={title} exerpt={exerpt} />
+                </div>
                 <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                   {title}
                 </h1>
                 <p>{description}</p>
                 <PostContent content={content} />
+                <div className="inline-share">
+                  <div className="post-top share-this">Share This</div>
+                  <PostShare slug={slug} title={title} exerpt={exerpt} />
+                </div>
                 {tags && tags.length ? (
                   <div style={{marginTop: `4rem`}}>
                     <h4>Tags</h4>
@@ -83,6 +90,7 @@ export const BlogPostTemplate = ({
                   </Tile>
                 </Tile>
               </div>
+              <Comments slug={slug} facebook={facebook} />
             </div>
           </div>
         </div>
@@ -98,6 +106,7 @@ export const SamplePost = ({source}) => {
 }
 
 BlogPostTemplate.propTypes = {
+  facebook: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   excerpt: PropTypes.string,
   content: PropTypes.string.isRequired,
@@ -113,6 +122,15 @@ const BlogPost = ({data}) => {
   const {singlePost: post} = data
   const {recentPosts: recentPosts} = data
   const {similarPosts: similarPosts} = data
+  const {
+    siteData: {
+      siteMetadata: {
+        facebook: {
+          appId
+        }
+      }
+    }
+  } = data
   if (post.frontmatter.source) {
     return (
       <SamplePost
@@ -122,6 +140,7 @@ const BlogPost = ({data}) => {
   } else {
     return (
       <BlogPostTemplate
+        facebook={appId}
         slug={post.fields.slug}
         exerpt={post.exerpt}
         content={post.html}
@@ -160,6 +179,13 @@ export const pageQuery = graphql`
         description
         tags
         source
+      }
+    }
+    siteData: site {
+      siteMetadata {
+        facebook{
+          appId
+        }
       }
     }
     recentPosts: allMarkdownRemark(
