@@ -1,7 +1,7 @@
 module.exports = {
   siteTitle: "Recess Sports Now", // <title>
   shortSiteTitle: "RSN", // <title> ending for posts and pages
-  siteUrl: "http://recesssportsnow.com",
+  siteUrl: "https://recesssportsnow.com",
   pathPrefix: "",
   siteLanguage: "en",
   // author

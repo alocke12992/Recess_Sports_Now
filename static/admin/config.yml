@@ -47,7 +47,7 @@ collections:
           - {label: "Link", name: "link", widget: "string"}
           - {label: "SEO Alt description", name: "alt", widget: "string"}
       - file: "src/pages/sideAd/index.md"
-        label: "Side Ad"
+        label: "Side"
         name: "side"
         fields: 
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sideAd"}
@@ -56,3 +56,4 @@ collections:
           - {label: "Image", name: "image", widget: "image"}
           - {label: "Link", name: "link", widget: "string"}
           - {label: "SEO Alt description", name: "alt", widget: "string"}
+      
