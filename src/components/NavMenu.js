@@ -2,18 +2,18 @@ import React from 'react';
 import Link from 'gatsby-link';
 import {kebabCase} from 'lodash';
 import {Icon} from 'bloomer';
+import Search from './Search';
 
 const tags = [
-  "ENTERTAINMENT",
-  "BUSINESS",
-  "TECH",
-  "LIFESTYLE",
-  "PODCAST",
-  "ORIGINALS"
+  "Entertainment",
+  "Business",
+  "Lifestyle",
+  "Podcast",
+  "RecessSportsTv"
 ]
 
 class NavMenu extends React.Component {
-  state = {isActive: false}
+  state = {isActive: false, searchHover: false}
 
   onClickNav = () => {
     this.setState((state => {
@@ -22,38 +22,13 @@ class NavMenu extends React.Component {
     )
   }
 
-  socialMedia = () => {
-
-    return (
-      <React.Fragment>
-        <div id="searchBar" >
-          <Search />
-        </div>
-        <Icon isSize='small' id="searchIcon">
-          <span className="fa fa-search" />
-        </Icon>
-        <a rel="noopener noreferral" target="_blank" className="navItem">
-          <Icon isSize='small'>
-            <span className="fa fa-info-circle" />
-          </Icon>
-        </a>
-        <a href="https://www.facebook.com/pg/RecessSports/posts/?ref=page_internal" rel="noopener noreferral" target="_blank" className="navItem">
-          <Icon isSize='small'>
-            <span className="fa fa-facebook-f" />
-          </Icon>
-        </a>
-        <a href="https://twitter.com/Recesssportsnow" rel="noopener noreferral" target="_blank" className="navItem">
-          <Icon isSize='small'>
-            <span className="fa fa-twitter" />
-          </Icon>
-        </a>
-        <a href="https://www.instagram.com/recesssportsnow/" rel="noopener noreferral" target="_blank" className="navItem">
-          <Icon isSize='small'>
-            <span className="fa fa-instagram" />
-          </Icon>
-        </a>
-      </React.Fragment>
-    )
+  toggleSearch = () => {
+    const searchIcon = document.getElementById("searchBar")
+    if (searchIcon.style["display"] === "block") {
+      searchIcon.style["display"] = "none"
+    } else {
+      searchIcon.style["display"] = "block"
+    }
   }
 
   links = () => {
@@ -65,8 +40,16 @@ class NavMenu extends React.Component {
           ))
         }
         <Link to="/contact" className="navItem">
-          CONTACT
-        </Link >
+          Contact
+        </Link>
+        <div id="searchIcon" onMouseEnter={this.toggleSearch} onMouseLeave={this.toggleSearch}>
+          <div id="searchBar" >
+            <Search getSearch={this.props.getSearch} />
+          </div>
+          <Icon isSize='small'>
+            <span className="fa fa-search" />
+          </Icon>
+        </div>
       </React.Fragment>
     )
   }

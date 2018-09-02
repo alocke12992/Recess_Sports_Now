@@ -11,18 +11,16 @@ export default class IndexPage extends React.Component {
     const {edges: posts} = data.posts
     const carouselImages = posts.filter(({node: post}) => post.frontmatter.carousel === true)
     return (
-      <div className='columns'>
-        <div className='column is-8 is-offset-2 mainContent'>
-          <HomeTop posts={carouselImages} ad={passedProps.ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
-          <div className="containerGrid">
-            {posts
-              .map(({node: post}) => (
-                <div key={post.id} className={post.frontmatter.featured ? "big" : ""} style={{height: '100%'}}>
-                  <Post post={post} />
-                </div>
-              )
-              )}
-          </div>
+      <div className='mainContent'>
+        <HomeTop posts={carouselImages} ad={passedProps.ads.filter(ad => ad.node.frontmatter.templateKey === "sideAd")} />
+        <div className="containerGrid">
+          {posts
+            .map(({node: post}) => (
+              <div key={post.id} className={post.frontmatter.featured ? "big" : ""} style={{height: '100%'}}>
+                <Post post={post} />
+              </div>
+            )
+            )}
         </div>
       </div>
     )

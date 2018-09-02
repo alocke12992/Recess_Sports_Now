@@ -5,12 +5,11 @@ import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarBrand, NavbarItem, 
 import Search from './Search';
 
 const tags = [
-  "ENTERTAINMENT",
-  "BUSINESS",
-  "TECH",
-  "LIFESTYLE",
-  "PODCASTS",
-  "ORIGINALS"
+  "Entertainment",
+  "Business",
+  "Lifestyle",
+  "Podcast",
+  "RecessSportsTv"
 ]
 
 class FixedNav extends React.Component {
@@ -77,8 +76,8 @@ class FixedNav extends React.Component {
           ))
         }
         <Link to="/contact" className="navItem">
-          CONTACT
-        </Link >
+          Contact
+        </Link>
       </React.Fragment>
     )
   }
@@ -87,10 +86,12 @@ class FixedNav extends React.Component {
     return (
       <div className="menuWrapper">
         <Link to="/">
-          <img src={this.props.logo} style={{width: 'auto', height: '50px', padding: '10px 15px'}} className="navBarLogo" />
+          <img src={this.props.logo} className="navBarLogo" />
         </Link>
-        <div className="navMenu">
+        <div className="navMenu" style={{marginRight: '15px'}}>
           {this.links()}
+        </div>
+        <div className="navMenu">
           {this.socialMedia()}
         </div>
       </div>

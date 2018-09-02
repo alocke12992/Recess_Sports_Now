@@ -117,6 +117,7 @@ body
   justify-content: center
   align-items: center
   padding: 0px 20px
+  height: 100%
 
 #searchBar
   display: none
@@ -224,7 +225,10 @@ body
   align-items: center
 
 .containerGrid h1
-  font-family: 'Oswald',sans-serif;
+  font-family: 'Oswald',sans-serif
+
+.navBarLogo 
+  max-width: 70%
 
 @media screen and (min-width: 769px)  
   .mobileNav
@@ -266,15 +270,17 @@ body
     top: 0
     width: 100%
     z-index: 10
-    padding: 5px 100px 0px 100px
+    padding: 15px 100px 10px 100px
+    height: 75px
   
   .navMenu
     display: flex
-    justify-content: space-between
+    justify-content: center
     width: 100%
   
   .navMenu a
     color: gray
+    margin: 0px 10px
     font-size: 100%
   
   #searchBar

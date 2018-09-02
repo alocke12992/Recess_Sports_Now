@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   repo: bglatman/rsn_website
   branch: master
 
