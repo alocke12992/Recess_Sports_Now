@@ -10,7 +10,6 @@ source: ''
 tags:
   - Originals
   - Tech
-  - Podcast
 featured: false
 carousel: false
 ---
