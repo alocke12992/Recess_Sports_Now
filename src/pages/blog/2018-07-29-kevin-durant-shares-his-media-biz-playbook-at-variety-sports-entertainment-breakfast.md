@@ -16,7 +16,7 @@ tags:
   - Kevin Durant
   - Basketball
   - Media
-featured: true
-carousel: true
+featured: false
+carousel: false
 ---
 
