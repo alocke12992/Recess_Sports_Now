@@ -17,7 +17,6 @@ class NavbarComponent extends React.Component {
   }
 
   getScroll = () => {
-    debugger
     window.addEventListener('scroll', () => {
       const navMenuNode = document.getElementById('navMenu').getClientRects()[0]
       this.props.setScroll(navMenuNode.top)

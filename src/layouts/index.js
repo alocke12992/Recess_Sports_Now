@@ -58,7 +58,28 @@ class TemplateWrapper extends React.Component {
             null
           }
           <div className="columns">
-            <div className="column is-2" style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}}></div>
+            {
+              backgroundAd[0].node.frontmatter.image ?
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'left',
+                    backgroundSize: 'cover'
+                  }}></div>
+                :
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'left',
+                    backgroundSize: 'cover'
+                  }}></div>
+            }
             <div className="column is-8">
               <Navbar
                 headerAd={headerAd[0].node.frontmatter.image}
@@ -71,7 +92,15 @@ class TemplateWrapper extends React.Component {
                 <div style={{marginTop: '0px'}}>{children()}</div>
               </AdContext.Provider>
             </div>
-            <div className="column is-2" style={{backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`, backgroundAttachment: 'fixed'}}></div>
+            <div
+              className="column is-2"
+              style={{
+                backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
+                backgroundAttachment: 'fixed',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right',
+                backgroundSize: 'cover'
+              }}></div>
           </div>
         </Fragment>
       )
