@@ -67,7 +67,7 @@ class TemplateWrapper extends React.Component {
                     backgroundAttachment: 'fixed',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'left',
-                    backgroundSize: 'cover'
+                    backgroundSize: 'contain'
                   }}></div>
                 :
                 <div
@@ -77,12 +77,12 @@ class TemplateWrapper extends React.Component {
                     backgroundAttachment: 'fixed',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'left',
-                    backgroundSize: 'cover'
+                    backgroundSize: 'contain'
                   }}></div>
             }
             <div className="column is-8">
               <Navbar
-                headerAd={headerAd[0].node.frontmatter.image}
+                headerAd={headerAd[0].node.frontmatter}
                 getSearch={this.getSearch}
                 clearSearch={this.clearSearch}
                 location={this.props.location.pathname}
@@ -92,15 +92,31 @@ class TemplateWrapper extends React.Component {
                 <div style={{marginTop: '0px'}}>{children()}</div>
               </AdContext.Provider>
             </div>
-            <div
-              className="column is-2"
-              style={{
-                backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
-                backgroundAttachment: 'fixed',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'right',
-                backgroundSize: 'cover'
-              }}></div>
+            {
+              backgroundAd[0].node.frontmatter.image ?
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right',
+                    backgroundSize: 'contain'
+                  }}>
+                  <a href={backgroundAd[0].node.frontmatter.link} alt={backgroundAd[0].node.frontmatter.title} target="_blank" rel="noreferrer noopener">
+                  </a>
+                </div>
+                :
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right',
+                    backgroundSize: 'contain'
+                  }}></div>
+            }
           </div>
         </Fragment>
       )

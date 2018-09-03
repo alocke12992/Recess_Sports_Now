@@ -9,7 +9,7 @@ const tags = [
   "Business",
   "Lifestyle",
   "Podcast",
-  "RecessSportsTv"
+  "RecessSportsTV"
 ]
 
 class NavMenu extends React.Component {

@@ -1,10 +1,12 @@
 import React from 'react';
-import RsnLogo from '../img/rsn_logo.png';
+import RsnLogo from '../img/rsnLogo.png';
 import Search from './Search';
 import NavMenu from './NavMenu';
 import FixedNav from './FixedNav'
 import Link from 'gatsby-link';
 import {Icon} from 'bloomer';
+import MobileNav from './MobileNav';
+
 
 class NavbarComponent extends React.Component {
   state = {showSearch: false}
@@ -35,9 +37,11 @@ class NavbarComponent extends React.Component {
       <div className="columns" style={{marginBottom: '0px'}} id="nav">
         <div className="column is-12">
           <div className="navWrapper">
-            <figure className="image is-3by1" id="headerAd">
-              <img src={this.props.headerAd} style={{height: '90px'}} id="logo" />
-            </figure>
+            <a href={this.props.headerAd.link} target="_blank" rel="noopener noreferrer">
+              <figure className="image is-3by1" id="headerAd">
+                <img src={this.props.headerAd.image} style={{height: '90px'}} id="logo" alt={this.props.headerAd.title} />
+              </figure>
+            </a>
             <div className="columns" style={{paddingTop: '20px'}}>
               <div className='column is-6 is-offset-3' id="logoLaptop">
                 <Link to="/" onClick={this.props.clearSearch}>
@@ -46,36 +50,7 @@ class NavbarComponent extends React.Component {
                   </figure>
                 </Link>
               </div>
-              <div className='column is-12 mobileNav' id="logoMobile">
-                <div id="mobileMenu">
-                  <div>
-                    <Icon isSize='small' id="">
-                      <span className="fas fa-bars" />
-                    </Icon>
-                  </div>
-                  <div>
-                    <Link to="/" onClick={this.props.clearSearch}>
-                      <figure className="image is-3by1" style={{display: 'flex', justifyContent: 'center'}}>
-                        <img src={RsnLogo} style={{height: '20%', width: '20%'}} />
-                      </figure>
-                    </Link>
-                  </div>
-                  <div onClick={() => this.showSearch()}>
-                    <Icon isSize='small' id="searchIcon">
-                      <span className="fa fa-search" />
-                    </Icon>
-                  </div>
-                </div>
-                {
-
-                  this.state.showSearch ?
-                    <div id="mobileSearch">
-                      <Search getSearch={this.props.getSearch} />
-                    </div>
-                    :
-                    null
-                }
-              </div>
+              <MobileNav getSearch={this.props.getSearch} clearSearch={this.props.clearSearch} />
             </div>
             <div className="columns" id="navMenu">
               <div className="column is-12">

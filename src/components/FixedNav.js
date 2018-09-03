@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import {kebabCase} from 'lodash';
-import Logo from '../img/rsn_logo_fixed_nav.png';
-import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarBrand, NavbarItem, NavbarBurger} from 'bloomer';
+import Logo from '../img/rsnLogo.png';
+import {Icon} from 'bloomer';
+import MobileNav from './MobileNav';
 import Search from './Search';
 
 const tags = [
@@ -10,7 +11,7 @@ const tags = [
   "Business",
   "Lifestyle",
   "Podcast",
-  "RecessSportsTv"
+  "RecessSportsTV"
 ]
 
 class FixedNav extends React.Component {
@@ -44,11 +45,6 @@ class FixedNav extends React.Component {
             <span className="fa fa-search" />
           </Icon>
         </div>
-        <a rel="noopener noreferral" target="_blank" className="navItem">
-          <Icon isSize='small'>
-            <span className="fa fa-info-circle" />
-          </Icon>
-        </a>
         <a href="https://www.facebook.com/pg/RecessSports/posts/?ref=page_internal" rel="noopener noreferral" target="_blank" className="navItem">
           <Icon isSize='small'>
             <span className="fa fa-facebook-f" />
@@ -62,6 +58,11 @@ class FixedNav extends React.Component {
         <a href="https://www.instagram.com/recesssportsnow/" rel="noopener noreferral" target="_blank" className="navItem">
           <Icon isSize='small'>
             <span className="fa fa-instagram" />
+          </Icon>
+        </a>
+        <a href="https://www.youtube.com/channel/UCqT7vtCF7kJNmUPR8BqZDQA" rel="noopener noreferral" target="_blank" className="navItem">
+          <Icon isSize='small'>
+            <span className="fab fa-youtube" />
           </Icon>
         </a>
       </React.Fragment>
@@ -86,15 +87,14 @@ class FixedNav extends React.Component {
   render() {
     return (
       <div className="menuWrapper">
-        <Link to="/">
-          <img src={Logo} className="navBarLogo" />
-        </Link>
         <div className="navMenu">
+          <Link to="/">
+            <img src={Logo} className="navBarLogo" />
+          </Link>
           {this.links()}
-        </div>
-        <div className="navMenu">
           {this.socialMedia()}
         </div>
+        <MobileNav />
       </div>
     )
   }

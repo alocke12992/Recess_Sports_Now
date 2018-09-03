@@ -9,7 +9,9 @@ const HomeTop = (props) => (
       <CarouselContainer posts={props.posts} />
     </div>
     <div className="homeTopAd">
-      <img src={props.ad[0].node.frontmatter.image} style={{height: '100%', width: '100%'}} />
+      <a href={props.ad[0].node.frontmatter.link} target="_blank" rel="noopener noreferrer">
+        <img src={props.ad[0].node.frontmatter.image} style={{height: '100%', width: '100%'}} alt={props.ad[0].node.frontmatter.title} />
+      </a>
     </div>
     <div className="homeTopSubscribe">
       <h1 style={{fontFamily: 'Roboto'}} className="mytextwithicon">Subscribe</h1>
