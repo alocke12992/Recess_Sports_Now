@@ -122,12 +122,18 @@ body
 #searchBar
   display: none
   z-index: 1000
-
-.searchForm
   position: absolute
   transform: translateX(-100%)
   width: 50%
   bottom: 15px
+  margin-right: 50px
+
+#mainSearchBar
+  display: none
+  z-index: 1000
+  position: absolute
+  transform: translateX(-100%)
+  width: 50%
   margin-right: 50px
 
 #searchIcon
@@ -239,7 +245,9 @@ body
   align-items: center
 
 .navBarLogo 
-  max-width: 70%
+  flex: 0 0 180px
+  overflow: hidden
+  position: relative
 
 @media screen and (min-width: 769px)  
   .mobileNav
@@ -282,7 +290,6 @@ body
     width: 100%
     z-index: 10
     padding: 15px 100px 10px 100px
-    height: 75px
   
   .navMenu
     display: flex

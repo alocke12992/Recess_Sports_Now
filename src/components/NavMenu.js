@@ -23,7 +23,7 @@ class NavMenu extends React.Component {
   }
 
   toggleSearch = () => {
-    const searchIcon = document.getElementById("searchBar")
+    const searchIcon = document.getElementById("mainSearchBar")
     if (searchIcon.style["display"] === "block") {
       searchIcon.style["display"] = "none"
     } else {
@@ -43,7 +43,7 @@ class NavMenu extends React.Component {
           Contact
         </Link>
         <div id="searchIcon" onMouseEnter={this.toggleSearch} onMouseLeave={this.toggleSearch}>
-          <div id="searchBar" >
+          <div id="mainSearchBar" >
             <Search getSearch={this.props.getSearch} />
           </div>
           <Icon isSize='small'>

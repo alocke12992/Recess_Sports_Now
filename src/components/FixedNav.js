@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import {kebabCase} from 'lodash';
+import Logo from '../img/rsn_logo_fixed_nav.png';
 import {Icon, Button, Navbar, NavbarStart, NavbarMenu, NavbarBrand, NavbarItem, NavbarBurger} from 'bloomer';
 import Search from './Search';
 
@@ -86,9 +87,9 @@ class FixedNav extends React.Component {
     return (
       <div className="menuWrapper">
         <Link to="/">
-          <img src={this.props.logo} className="navBarLogo" />
+          <img src={Logo} className="navBarLogo" />
         </Link>
-        <div className="navMenu" style={{marginRight: '15px'}}>
+        <div className="navMenu">
           {this.links()}
         </div>
         <div className="navMenu">

@@ -79,7 +79,7 @@ class NavbarComponent extends React.Component {
             </div>
             <div className="columns" id="navMenu">
               <div className="column is-12">
-                <NavMenu />
+                <NavMenu getSearch={this.props.getSearch} />
               </div>
             </div>
           </div>
