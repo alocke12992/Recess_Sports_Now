@@ -12,7 +12,7 @@ import FixedNav from '../components/FixedNav';
 
 
 class TemplateWrapper extends React.Component {
-  state = {password: 'Playground2018', isAuthenticated: false, searchTerm: '', showSearch: false, scroll: null, }
+  state = {password: 'Playground2018', isAuthenticated: false, searchTerm: '', showSearch: false, scroll: null}
 
   toggleForm = () => {
     this.setState((state) => {
