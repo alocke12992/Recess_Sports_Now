@@ -23,7 +23,7 @@ tags:
   - Movie
   - Sneakers
   - Nike
-featured: true
+featured: false
 carousel: true
 ---
 
