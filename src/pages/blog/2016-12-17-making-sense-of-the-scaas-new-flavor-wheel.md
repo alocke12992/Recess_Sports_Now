@@ -12,7 +12,7 @@ tags:
   - Tech
   - Podcast
 featured: false
-carousel: true
+carousel: false
 ---
 ![this is for SEO ](/img/4eedab444f1eb269df87f2c96ee4a5ef.jpg)
 
