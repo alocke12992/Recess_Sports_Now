@@ -2,7 +2,8 @@
 templateKey: headerAd
 category: ad
 title: Header
-image: /img/the-catcher-was-a-spy-film.jpg
-link: 'https://www.imdb.com/title/tt4602066/'
+image: /img/gone-streaking-banner.jpg
+link: 'https://gonestreakin.com/'
+alt: 'Class Act Sports, Gone Steaking, Fantasy Football'
 ---
 
