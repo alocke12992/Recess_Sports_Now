@@ -17,7 +17,7 @@ tags:
   - Movies
   - Comedy
   - Boxing
-featured: true
+featured: false
 carousel: false
 ---
 
