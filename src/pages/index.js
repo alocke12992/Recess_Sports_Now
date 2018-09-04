@@ -16,7 +16,7 @@ export default class IndexPage extends React.Component {
         <div className="containerGrid">
           {posts
             .map(({node: post}) => (
-              <div key={post.id} className={post.frontmatter.featured ? "big" : ""} style={{height: '100%'}}>
+              <div key={post.id} className={post.frontmatter.featured ? "big" : ""} style={{height: '100%'}} id="postContainer">
                 <Post post={post} />
               </div>
             )
