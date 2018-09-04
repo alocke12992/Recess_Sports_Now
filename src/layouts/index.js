@@ -40,111 +40,110 @@ class TemplateWrapper extends React.Component {
     let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
     let props = {ads: ads, searchTerm: this.state.searchTerm, showSearch: this.state.showSearch}
 
-
-    if (this.state.isAuthenticated) {
-      if (this.props.location.pathname === "/") {
-        return (
-          <Fragment>
-            <Helmet title="Recess Sports Now" />
-            {this.state.scroll < 0 ?
-              <div className="columns">
-                <div className="column is-12">
-                  <div className="fixedNav">
-                    <FixedNav logo={RsnLogo} toggleSearch={this.toggleSearch} location={this.state.scrollLocation} getSearch={this.getSearch} />
-                  </div>
-                </div>
-              </div>
-              :
-              null
-            }
-            <div className="columns">
-              {
-                backgroundAd[0].node.frontmatter.image ?
-                  <div
-                    className="column is-2"
-                    style={{
-                      backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
-                      backgroundAttachment: 'fixed',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'left',
-                      backgroundSize: 'contain'
-                    }}></div>
-                  :
-                  <div
-                    className="column is-2"
-                    style={{
-                      backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
-                      backgroundAttachment: 'fixed',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'left',
-                      backgroundSize: 'contain'
-                    }}></div>
-              }
-              <div className="column is-8">
-                <Navbar
-                  headerAd={headerAd[0].node.frontmatter}
-                  getSearch={this.getSearch}
-                  clearSearch={this.clearSearch}
-                  location={this.props.location.pathname}
-                  setScroll={this.setScroll}
-                />
-                <AdContext.Provider value={props}>
-                  <div style={{marginTop: '0px'}}>{children()}</div>
-                </AdContext.Provider>
-              </div>
-              {
-                backgroundAd[0].node.frontmatter.image ?
-                  <div
-                    className="column is-2"
-                    style={{
-                      backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
-                      backgroundAttachment: 'fixed',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right',
-                      backgroundSize: 'contain'
-                    }}>
-                    <a href={backgroundAd[0].node.frontmatter.link} alt={backgroundAd[0].node.frontmatter.title} target="_blank" rel="noreferrer noopener">
-                    </a>
-                  </div>
-                  :
-                  <div
-                    className="column is-2"
-                    style={{
-                      backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
-                      backgroundAttachment: 'fixed',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'right',
-                      backgroundSize: 'contain'
-                    }}></div>
-              }
-            </div>
-          </Fragment>
-        )
-      } else {
-        return (
-          <Fragment>
-            <Helmet title="Recess Sports Now" />
+    // if (this.state.isAuthenticated) {
+    if (this.props.location.pathname === "/") {
+      return (
+        <Fragment>
+          <Helmet title="Recess Sports Now" />
+          {this.state.scroll < 0 ?
             <div className="columns">
               <div className="column is-12">
                 <div className="fixedNav">
-                  <FixedNav logo={RsnLogo} toggleSearch={this.toggleSearch} getSearch={this.getSearch} />
+                  <FixedNav logo={RsnLogo} toggleSearch={this.toggleSearch} location={this.state.scrollLocation} getSearch={this.getSearch} />
                 </div>
               </div>
             </div>
-            <div className="mainWrapper">
+            :
+            null
+          }
+          <div className="columns">
+            {
+              backgroundAd[0].node.frontmatter.image ?
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'left',
+                    backgroundSize: 'contain'
+                  }}></div>
+                :
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'left',
+                    backgroundSize: 'contain'
+                  }}></div>
+            }
+            <div className="column is-8">
+              <Navbar
+                headerAd={headerAd[0].node.frontmatter}
+                getSearch={this.getSearch}
+                clearSearch={this.clearSearch}
+                location={this.props.location.pathname}
+                setScroll={this.setScroll}
+              />
               <AdContext.Provider value={props}>
-                <div style={{marginTop: '75px'}}>{children()}</div>
+                <div style={{marginTop: '0px'}}>{children()}</div>
               </AdContext.Provider>
             </div>
-            <div id="navMenu"></div>
-          </Fragment>
-        )
-      }
+            {
+              backgroundAd[0].node.frontmatter.image ?
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url(${backgroundAd[0].node.frontmatter.image})`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right',
+                    backgroundSize: 'contain'
+                  }}>
+                  <a href={backgroundAd[0].node.frontmatter.link} alt={backgroundAd[0].node.frontmatter.title} target="_blank" rel="noreferrer noopener">
+                  </a>
+                </div>
+                :
+                <div
+                  className="column is-2"
+                  style={{
+                    backgroundImage: `url("https://www.campmohawk.com/wp-content/uploads/2018/01/grass-background-28.jpg")`,
+                    backgroundAttachment: 'fixed',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right',
+                    backgroundSize: 'contain'
+                  }}></div>
+            }
+          </div>
+        </Fragment>
+      )
     } else {
       return (
-        <Login password={this.state.password} closeForm={this.toggleForm} />
+        <Fragment>
+          <Helmet title="Recess Sports Now" />
+          <div className="columns">
+            <div className="column is-12">
+              <div className="fixedNav">
+                <FixedNav logo={RsnLogo} toggleSearch={this.toggleSearch} getSearch={this.getSearch} />
+              </div>
+            </div>
+          </div>
+          <div className="mainWrapper">
+            <AdContext.Provider value={props}>
+              <div style={{marginTop: '75px'}}>{children()}</div>
+            </AdContext.Provider>
+          </div>
+          <div id="navMenu"></div>
+        </Fragment>
       )
     }
+    // } else {
+    //   return (
+    //     <Login password={this.state.password} closeForm={this.toggleForm} />
+    //   )
+    // }
   }
 }
 
