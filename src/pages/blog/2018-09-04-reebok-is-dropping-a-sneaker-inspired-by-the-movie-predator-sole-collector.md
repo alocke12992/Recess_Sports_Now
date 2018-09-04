@@ -13,6 +13,6 @@ tags:
   - Lifestyle
   - Reebok
   - Sneakers
-  - Predator
+  - Fashion
 ---
 
