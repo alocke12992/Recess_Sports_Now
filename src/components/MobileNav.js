@@ -5,13 +5,13 @@ import Search from './Search';
 import {kebabCase} from 'lodash';
 import Link from 'gatsby-link';
 import {
-  Icon, 
-  Navbar, 
-  NavbarBrand, 
-  NavbarBurger, 
-  NavbarItem, 
-  NavbarMenu, 
-  NavbarStart, 
+  Icon,
+  Navbar,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarItem,
+  NavbarMenu,
+  NavbarStart,
   NavbarEnd,
   Button,
   Field,
@@ -44,24 +44,24 @@ class MobileNav extends React.Component {
   render() {
     return (
       <div className='column is-12 mobileNav' id="logoMobile">
-      <Navbar style={{ width: '100%', margin: '0' }}>
-        <NavbarBrand>
-          <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav}/>
-          <NavbarItem>
-            <Link to="/">
-              <img src={RsnLogo}/>
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
+        <Navbar style={{width: '100%', margin: '0'}}>
+          <NavbarBrand>
+            <NavbarBurger isActive={this.state.isActive} onClick={this.onClickNav} />
+            <NavbarItem>
+              <Link to="/">
+                <img src={RsnLogo} />
+              </Link>
+            </NavbarItem>
+            <NavbarItem>
               <div onClick={() => this.showSearch()}>
                 <Icon isSize='small' id="searchIcon">
                   <span className="fa fa-search" />
                 </Icon>
               </div>
-          </NavbarItem>
-        </NavbarBrand>
-        <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
-          <NavbarStart>
+            </NavbarItem>
+          </NavbarBrand>
+          <NavbarMenu isActive={this.state.isActive} onClick={this.onClickNav}>
+            <NavbarStart>
               <NavbarItem><Link to="/">Home</Link></NavbarItem>
               {
                 tags.map(tag => (
@@ -70,27 +70,55 @@ class MobileNav extends React.Component {
                   </NavbarItem>
                 ))
               }
-            <NavbarItem>
-              <Link to="/contact" className="navItem">
-                Contact
+              <NavbarItem>
+                <Link to="/contact" className="navItem">
+                  Contact
               </Link>
-            </NavbarItem>
-          </NavbarStart>
-        <NavbarEnd>
-          <NavbarItem>
-            <Field isGrouped>
-              <Control>
-                <Button id="twitter" data-social-network="Twitter" data-social-action="tweet"
-                data-social-target="http://bloomer.js.org" target="_blank" href="https://twitter.com/intent/tweet?text=bloomer:
-                a set of React Stateless Components for bulma.io&amp;url=http://bloomer.js.org&amp;via=AlgusDark">
-                    <Icon className="fa fa-twitter" />
-                    <span>Tweet</span>
-                </Button>
-              </Control>
-            </Field>
-          </NavbarItem>
-        </NavbarEnd>
-      </NavbarMenu>
+              </NavbarItem>
+            </NavbarStart>
+            <NavbarEnd>
+              <NavbarItem>
+                <Field isGrouped>
+                  <Control>
+                    <Button
+                      target="_blank"
+                      href="https://www.facebook.com/pg/RecessSports/posts/?ref=page_internal"
+                      className="is-link"
+                    >
+                      <Icon className="fab fa-facebook-f" />
+                    </Button>
+                  </Control>
+                  <Control>
+                    <Button
+                      target="_blank"
+                      href="https://twitter.com/Recesssportsnow"
+                      className="is-link"
+                    >
+                      <Icon className="fab fa-twitter" />
+                    </Button>
+                  </Control>
+                  <Control>
+                    <Button
+                      target="_blank"
+                      href="https://www.instagram.com/recesssportsnow/"
+                      className="is-link"
+                    >
+                      <Icon className="fab fa-instagram" />
+                    </Button>
+                  </Control>
+                  <Control>
+                    <Button
+                      target="_blank"
+                      href="https://www.youtube.com/channel/UCqT7vtCF7kJNmUPR8BqZDQA"
+                      className="is-link"
+                    >
+                      <Icon className="fab fa-youtube" />
+                    </Button>
+                  </Control>
+                </Field>
+              </NavbarItem>
+            </NavbarEnd>
+          </NavbarMenu>
           {
 
             this.state.showSearch ?
@@ -100,7 +128,7 @@ class MobileNav extends React.Component {
               :
               null
           }
-    </Navbar>
+        </Navbar>
       </div>
     )
   }
