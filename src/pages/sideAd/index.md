@@ -2,7 +2,8 @@
 templateKey: sideAd
 category: ad
 title: Side
-image: /img/300x250.png
-link: 'http://www.espn.com/'
+image: /img/gone-streaking-rectangle-ad-unit-300.jpg
+link: 'https://gonestreakin.com/'
+alt: Fantasy Football Class Act Sports Gone Streakin
 ---
 
