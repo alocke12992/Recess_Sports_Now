@@ -2,7 +2,8 @@
 templateKey: headerAd
 category: ad
 title: Header
-image: /img/720x90.png
-link: 'https://www.imdb.com/title/tt4602066/'
+image: /img/gone-streaking-banner-v2-720.jpg
+link: 'https://gonestreakin.com/'
+alt: Gone Streakin Class Act Sports Fantasy Football
 ---
 
