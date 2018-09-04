@@ -2,8 +2,8 @@
 templateKey: blog-post
 featuredImage: /img/lebron_james.jpg
 title: >-
-  LeBron James To Produce ‘Million Dollar Mile’ Competition Series On CBS (Photo
-  via Ken Blaze/USA TODAY Sports Images)
+  LeBron James To Produce ‘Million Dollar Mile’ Competition Series On CBS [USA
+  TODAY]
 date: '2018-08-08T17:03:38-07:00'
 description: >
   SpringHill Entertainment, the production company James and his business
