@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/extra-buttter-20th-century-fox-reebok-dmx-run-10-predator-1.jpg
+featuredImage: /img/reebok_sneakers_predator_rsn.jpg
 title: 'Reebok Is Dropping a Sneaker Inspired by the Movie ''Predator'' [Sole Collector]'
 date: '2018-09-04T15:24:28-07:00'
 description: >-
