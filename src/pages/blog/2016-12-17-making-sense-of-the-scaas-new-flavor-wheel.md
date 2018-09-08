@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/aml01.jpg
+featuredImage: /img/holding.jpg
 title: 'See how easy it is Brett? '
 date: 2016-12-17T15:04:10.000Z
 description: >
@@ -8,8 +8,7 @@ description: >
   tasters, has been revised for the first time this year.
 source: ''
 tags:
-  - Originals
-  - Tech
+  - ''
 featured: false
 carousel: false
 ---
