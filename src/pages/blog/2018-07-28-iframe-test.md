@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
-featuredImage: /img/joel-embiid.jpg
-title: Joel Embiid Trusts the Process While Eating Spicy Wings | Hot Ones
+featuredImage: /img/joel_embiid_wings.jpg
+title: 'Joel Embiid Trusts the Process While Eating Spicy Wings | Hot Ones [Complex]'
 date: '2018-07-28T10:42:57-07:00'
 description: >-
   Joel Embiid is an NBA All Star, a fan favorite in Philadelphia, and proud
