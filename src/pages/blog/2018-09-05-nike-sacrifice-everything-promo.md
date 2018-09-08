@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/kap_500_250.jpg
+featuredImage: /img/nike_kap_new.jpg
 title: Nike "Sacrifice Everything" Promo
 date: '2018-09-05T13:28:25-07:00'
 description: >-
