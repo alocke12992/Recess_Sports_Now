@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/1_dxjkouzwkl2aiufafcylgw.jpg
+featuredImage: /img/nike_shoe_dog.jpg
 title: Shoe Dog Gets The Movie Treatment
 date: '2018-07-26T16:07:25-07:00'
 description: >
