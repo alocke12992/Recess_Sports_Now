@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/tom_vs_time_hour_glass_2_recess_sports_now.jpg
+featuredImage: /img/tom_v_time_hour_glass_new.jpg
 title: 'Tom vs. Time - UPDATE:  "Epilogue" [Facebook Watch]'
 date: '2018-09-06T07:42:38-07:00'
 description: >-
