@@ -1,9 +1,9 @@
 ---
 templateKey: blog-post
-featuredImage: /img/damon-wayans_recess-sports-now.jpg
+featuredImage: /img/damon_wayans_boxing_movie.jpg
 title: >-
   ‘SNL’s Michael Che & Damon Wayans Jr. Aboard As Executive Producers Of Boxing
-  Film ‘I Am Maurice’
+  Film ‘I Am Maurice’ [Deadline]
 date: '2018-07-28T16:18:42-07:00'
 description: >-
   Saturday Night Live co-head writer and “Weekend Update” co-anchor Michael Che
