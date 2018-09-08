@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-featuredImage: /img/joel-embiid.jpg
+featuredImage: /img/joel_embiid_wings.jpg
 title: Wings Wings Wings
 date: '2018-07-28T10:32:16-07:00'
 description: >-
