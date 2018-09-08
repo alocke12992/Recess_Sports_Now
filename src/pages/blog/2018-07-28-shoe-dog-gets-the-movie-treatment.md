@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 featuredImage: /img/nike_shoe_dog.jpg
-title: Shoe Dog Gets The Movie Treatment
+title: 'Shoe Dog Gets The Movie Treatment [Variety]'
 date: '2018-07-26T16:07:25-07:00'
 description: >
   Netflix has optioned the movie rights to Nike founder Phil Knight’s
