@@ -7,7 +7,7 @@ description: >-
   Terry Bradshaw stops by Jimmy Kimmel Live for Birthday shenanigans and
   reminisces about Burt Reynolds.
 tags:
-  - Recess SportsTV
+  - RecessSportsTV
   - Jimmy Kimmel Live
   - Terry Bradshaw
   - Celebrity
