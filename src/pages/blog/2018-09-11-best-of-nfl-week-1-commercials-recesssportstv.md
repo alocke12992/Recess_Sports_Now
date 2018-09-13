@@ -7,7 +7,7 @@ description: >-
   Each week we take a look at some of the biggest NFL Commercials from around
   the league featuring your favorite athletes and celebrities.
 tags:
-  - Recess SportsTV
+  - RecessSportsTV
   - Commercials
   - Celebrity
   - NFL
