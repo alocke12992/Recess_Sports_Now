@@ -61,7 +61,7 @@ export const BlogPostTemplate = ({
                   <Title>You Might Also Like</Title>
                   <Tile isAncestor>
                     <Tile isSize={12} isParent>
-                      {/* {
+                      {
                         similarPosts.map(post => {
                           return (
                             <div key={post.node.id} style={{margin: '0px 10px'}}>
@@ -69,7 +69,7 @@ export const BlogPostTemplate = ({
                             </div>
                           )
                         })
-                      } */}
+                      }
                     </Tile>
                   </Tile>
                 </div>
@@ -78,7 +78,7 @@ export const BlogPostTemplate = ({
                 <Title>Popular Stories</Title>
                 <Tile isAncestor>
                   <Tile isSize={12} isVertical isParent>
-                    {/* {
+                    {
                       recentPosts.map(post => {
                         return (
                           <div key={post.node.id} style={{margin: '15px 0px'}}>
@@ -86,7 +86,7 @@ export const BlogPostTemplate = ({
                           </div>
                         )
                       })
-                    } */}
+                    }
                   </Tile>
                 </Tile>
               </div>

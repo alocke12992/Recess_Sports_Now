@@ -52,6 +52,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-126221056-1`
+      },
+    },
+    {
       resolve: `gatsby-plugin-create-client-paths`,
       options: {prefixes: [`/search/*`]},
     },
