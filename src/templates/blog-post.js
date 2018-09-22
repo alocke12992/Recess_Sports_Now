@@ -62,7 +62,7 @@ export const BlogPostTemplate = ({
                   <Tile isAncestor>
                     <Tile isSize={12} isParent>
                       {
-                        similarPosts.map(post => {
+                        similarPosts && similarPosts.map(post => {
                           return (
                             <div key={post.node.id} style={{margin: '0px 10px'}}>
                               <ReadMore post={post} />
@@ -79,7 +79,7 @@ export const BlogPostTemplate = ({
                 <Tile isAncestor>
                   <Tile isSize={12} isVertical isParent>
                     {
-                      recentPosts.map(post => {
+                      recentPosts && recentPosts.map(post => {
                         return (
                           <div key={post.node.id} style={{margin: '15px 0px'}}>
                             <ReadMore post={post} />
