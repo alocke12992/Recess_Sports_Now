@@ -12,7 +12,7 @@ import FixedNav from '../components/FixedNav';
 
 
 class TemplateWrapper extends React.Component {
-  state = {password: 'Playground2018', isAuthenticated: false, searchTerm: '', showSearch: false, scroll: null}
+  state = {searchTerm: '', showSearch: false, scroll: null}
 
   toggleForm = () => {
     this.setState((state) => {
@@ -40,7 +40,6 @@ class TemplateWrapper extends React.Component {
     let backgroundAd = ads.filter(ad => ad.node.frontmatter.templateKey === 'backgroundAd')
     let props = {ads: ads, searchTerm: this.state.searchTerm, showSearch: this.state.showSearch}
 
-    if (this.state.isAuthenticated) {
       if (this.props.location.pathname === "/") {
         return (
           <Fragment>
@@ -139,13 +138,8 @@ class TemplateWrapper extends React.Component {
           </Fragment>
         )
       }
-    } else {
-      return (
-        <Login password={this.state.password} closeForm={this.toggleForm} />
-      )
-    }
+    } 
   }
-}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
